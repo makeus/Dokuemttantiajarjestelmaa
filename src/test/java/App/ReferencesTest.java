@@ -20,7 +20,7 @@ public class ReferencesTest {
 
     @Test
     public void testAddArticle() {
-        Article article = new Article("Infusing active learning into introductory programming courses", "Whittington, Keith J", "J. Comput. Small Coll", 19, 5, 2004, "249--259", "Consortium for..", "USA");
+        Article article = new Article("asd", "Infusing active learning into introductory programming courses", "Whittington, Keith J", "J. Comput. Small Coll", 19, 5, 2004, "249--259", "Consortium for..", "USA");
         references.addArticle(article);
         verify(articlesmock).addArticle(article);
     }
