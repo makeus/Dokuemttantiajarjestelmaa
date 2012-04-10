@@ -56,4 +56,8 @@ public class Article {
     public String getAddress(){
         return address;
     }
+    @Override
+    public String toString(){
+        return keyword + ", " + author + ": " + title;
+    }
 }
