@@ -6,19 +6,11 @@ package User_Interface;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import App.References;
+import References.References;
 import Articles.Article;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
-import javax.swing.plaf.ColorUIResource;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -459,17 +451,6 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_articleChanged
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-
-                ApplicationContext ctx = new FileSystemXmlApplicationContext("src/main/resources/spring-context.xml");
-                GUI gui = ctx.getBean(GUI.class);
-                gui.setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private javax.swing.JLabel addresstext;

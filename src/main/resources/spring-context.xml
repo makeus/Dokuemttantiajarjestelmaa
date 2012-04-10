@@ -13,7 +13,7 @@
     <context:annotation-config />
     <context:component-scan base-package="Articles" />  
     <bean id="articles" class="Articles.Articles" />
-    <bean id="references" class="App.References" >
+    <bean id="references" class="References.References" >
         <constructor-arg ref="articles" />
     </bean>
     <bean id="gui" class="User_Interface.GUI" >
