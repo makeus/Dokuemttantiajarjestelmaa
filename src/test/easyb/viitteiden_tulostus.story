@@ -12,7 +12,7 @@ scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
             artikkelit = new Articles()
             referenssit = new References(artikkelit) 
             window = new GUI(referenssit)
-            window.show(new Dimension(500,500))
+            window.show()
         }
         when 'käyttäjä valitsee tulosta lähdeviitteet', {
             window.button("Print References").click()

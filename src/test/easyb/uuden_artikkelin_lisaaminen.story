@@ -12,7 +12,7 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             artikkelit = new Articles()
             referenssit = new References(artikkelit) 
             window = new GUI(referenssit)
-            window.show(new Dimension(500,500))
+            window.show()
         }
 	when 'Artikkelin tiedot on annettu', {
             window.textBox("keyword").enterText("ABC")
