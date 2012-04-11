@@ -2,13 +2,15 @@ import App.*
 import Articles.*
 import References.*
 import User_Interface.*
+import org.fest.swing.fixture.* 
+import java.awt.Dimension
 
 description 'Käyttäjä voi lisätä artikkelin lähdeviitteenä oikeilla tai väärilla tiedoilla' 
 
 scenario 'Käyttäjä lisää artikkelin tiedoilla', {
 	given 'Artikkelin lisäys valittu'{
-            window = new GUI(new References(new Articles))
-            window.show()
+            window = new GUI(new References(new Articles()))
+            window.show(new Dimension(500,500))
         }
 	when 'Artikkelin tiedot on annettu', {
             window.textBox("keyword").enterText("ABC")
