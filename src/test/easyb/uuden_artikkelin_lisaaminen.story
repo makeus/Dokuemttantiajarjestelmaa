@@ -5,9 +5,9 @@ import User_Interface.*
 
 description 'Käyttäjä voi lisätä artikkelin lähdeviitteenä oikeilla tai väärilla tiedoilla' 
 
-Scenario 'Käyttäjä lisää artikkelin tiedoilla', {
+scenario 'Käyttäjä lisää artikkelin tiedoilla', {
 	given 'Artikkelin lisäys valittu'{
-            window = new GUI(new References())
+            window = new GUI(new References(new Articles))
             window.show()
         }
 	when 'Artikkelin tiedot on annettu', {

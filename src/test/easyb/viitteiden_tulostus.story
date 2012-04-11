@@ -5,9 +5,9 @@ import User_Interface.*
 
 description 'Käyttäjä voi tulostaa tallennetut lähdeviitteet' 
 
-Scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
+scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
 	given 'Käyttäjä avaa ohjelman'{
-            window = new GUI(new References())
+            window = new GUI(new References(new Articles))
             window.show()
         }
         when 'käyttäjä valitsee tulosta lähdeviitteet', {
