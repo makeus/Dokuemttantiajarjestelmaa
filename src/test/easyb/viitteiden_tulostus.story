@@ -15,7 +15,7 @@ scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
             window.show()
         }
         when 'käyttäjä valitsee tulosta lähdeviitteet', {
-            window.print.doClick()
+            window.printMouseClicked()
         }
 	then 'Tallennetut lähdeviitteet näytetään', {
             window.getCurrentpage().shouldHave("page2")
