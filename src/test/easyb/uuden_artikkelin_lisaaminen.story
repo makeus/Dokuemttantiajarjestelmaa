@@ -8,8 +8,10 @@ import java.awt.Dimension
 description 'Käyttäjä voi lisätä artikkelin lähdeviitteenä oikeilla tai väärilla tiedoilla' 
 
 scenario 'Käyttäjä lisää artikkelin tiedoilla', {
-	given 'Artikkelin lisäys valittu'{
-            window = new GUI(new References(new Articles()))
+	given 'Artikkelin lisäys valittu', {
+            artikkelit = new Articles()
+            referenssit = new References(artikkelit) 
+            window = new GUI(referenssit)
             window.show(new Dimension(500,500))
         }
 	when 'Artikkelin tiedot on annettu', {

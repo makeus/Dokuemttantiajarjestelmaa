@@ -8,8 +8,10 @@ import java.awt.Dimension
 description 'Käyttäjä voi tulostaa tallennetut lähdeviitteet' 
 
 scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
-	given 'Käyttäjä avaa ohjelman'{
-            window = new GUI(new References(new Articles()))
+	given 'Käyttäjä avaa ohjelman', {
+            artikkelit = new Articles()
+            referenssit = new References(artikkelit) 
+            window = new GUI(referenssit)
             window.show(new Dimension(500,500))
         }
         when 'käyttäjä valitsee tulosta lähdeviitteet', {
