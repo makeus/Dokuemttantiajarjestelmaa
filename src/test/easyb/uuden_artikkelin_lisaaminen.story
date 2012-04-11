@@ -27,7 +27,7 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             window.address.setText("Omenakuja 3")
         }
         and 'Add painiketta painetaan', {
-            window.submit.doClick()
+            window.submit.doClick(2)
         }
 	then 'Uusi artikkeli lisätään', {
             true==true
