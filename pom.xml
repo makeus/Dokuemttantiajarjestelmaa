@@ -120,24 +120,6 @@
                     </formats>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.easyb</groupId>
-                <artifactId>maven-easyb-plugin</artifactId>
-                <version>1.4</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <storyType>html</storyType>
-                    <storyReport>${basedir}/target/easyb/easyb-report.html
-                    </storyReport>
-                </configuration>
-            </plugin>
         </plugins>
     </build>    
     
