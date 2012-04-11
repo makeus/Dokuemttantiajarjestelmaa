@@ -92,7 +92,7 @@
                   <Component id="newArticle" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="print" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace pref="330" max="32767" attributes="0"/>
+                  <EmptySpace pref="727" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -203,13 +203,10 @@
                               <Component id="year" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="publisher" alignment="0" min="-2" pref="359" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="header2" min="-2" pref="154" max="-2" attributes="0"/>
-                          <EmptySpace pref="353" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="header2" min="-2" pref="154" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace pref="424" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -269,7 +266,7 @@
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="submit" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="428" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -489,7 +486,7 @@
                       <Component id="tabbedPane" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="header3" pref="0" max="32767" attributes="0"/>
+                          <Component id="header3" pref="418" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -506,7 +503,7 @@
                   <Component id="jScrollPane1" min="-2" pref="102" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="tabbedPane" min="-2" pref="213" max="-2" attributes="0"/>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace pref="445" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

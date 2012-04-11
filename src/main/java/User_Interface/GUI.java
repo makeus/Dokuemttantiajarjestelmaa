@@ -428,6 +428,10 @@ public class GUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
+    public String getCurrentpage(){
+        return currentpage.getName();
+    }
+    
     private void newArticleMouseClicked(MouseEvent evt) {//GEN-FIRST:event_newArticleMouseClicked
         currentpage.setVisible(false);
         page1.setVisible(true);
