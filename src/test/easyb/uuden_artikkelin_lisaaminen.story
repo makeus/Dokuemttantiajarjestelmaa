@@ -4,6 +4,7 @@ import References.*
 import User_Interface.*
 import org.fest.swing.fixture.* 
 import java.awt.Dimension
+import java.util.List
 
 description 'Käyttäjä voi lisätä artikkelin lähdeviitteenä oikeilla tai väärilla tiedoilla' 
 
@@ -15,6 +16,7 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             window.show()
         }
 	when 'Artikkelin tiedot on annettu', {
+            window.newArticleMouseClicked()
             window.keyword.setText("ABC")
             window.author.setText("Olli Opettaja")
             window.journal.setText("Opettajalehti")
@@ -30,6 +32,6 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             window.submit.doClick(2)
         }
 	then 'Uusi artikkeli lisätään', {
-            true==true
+            !referenssit.getArticles().isEmpty()
         }
 }
