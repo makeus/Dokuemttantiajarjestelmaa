@@ -5,7 +5,7 @@ import User_Interface.*
 
 description 'Käyttäjä voi tulostaa tallennetut lähdeviitteet' 
 
-Scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
+scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
 	given 'Käyttäjä avaa ohjelman'{
             window = new GUI(new References())
             window.show()
@@ -16,3 +16,4 @@ Scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
 	then 'Tallennetut lähdeviitteet näytetään', {
             window.getCurrentpage().shouldHave("page2")
         }
+}
