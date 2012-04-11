@@ -7,13 +7,23 @@ Description 'Käyttäjä voi lisätä artikkelin lähdeviitteenä oikeilla tai v
 
 Scenario 'Käyttäjä lisää artikkelin tiedoilla' {
 	given 'Artikkelin lisäys valittu'{
-        articles = new Articles()
-        article = new Article("ABC", "Aakkosista", "Olli Opettaja", "Opettaja-lehti", 13, 11, 2001, "13-31", "Opettajaliitto", "Omenakuja 3")
+        window = new GUI(new References())
+        window.show()
         }
 	when 'Artikkelin tiedot on annettu'{
-        articles.addArticle(article)
+        window.textBox("keyword").enterText("ABC")
+        window.textBox("author").enterText("Olli Opettaja")
+        window.textBox("title").enterText("Aakkosista")
+        window.textBox("journal").enterText("Opettajalehti")
+        window.textBox("pages1").exterText("1")
+        window.textBox("pages2").exterText("2")
+        window.textBox("publisher").exterText("Opettajaliitto")
+        window.textBox("address").exterText("Omenakuja 3")
+        }
+        and 'Add painiketta painetaan'{
+        window.button("add").click()
         }
 	then 'Uusi artikkeli lisätään'{
-        articles.getArticles().get(0).getKeyword()=="ABC"
+        window.label("Article created").requireText("Article successfully created!")
         }
 }
