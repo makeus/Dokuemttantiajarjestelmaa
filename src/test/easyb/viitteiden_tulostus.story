@@ -2,5 +2,13 @@
 Description 'Käyttäjä voi tulostaa tallennetut lähdeviitteet' 
 
 Scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet' {
-	given 'Lähdeviitteiden tulostus valittu'
-	then 'Tallennetut lähdeviitteet näytetään'
+	given 'Käyttäjä avaa ohjelman'{
+            window = new GUI(new References())
+            window.show()
+        }
+        when 'käyttäjä valitsee tulosta lähdeviitteet'{
+            window.button("Print References").click()
+        }
+	then 'Tallennetut lähdeviitteet näytetään'{
+            window.getCurrentpage().shouldHave("page2")
+        }
