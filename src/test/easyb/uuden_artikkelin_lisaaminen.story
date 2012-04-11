@@ -13,7 +13,7 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             artikkelit = new Articles()
             referenssit = new References(artikkelit) 
             window = new GUI(referenssit)
-            window.show()
+            //window.show()
         }
 	when 'Artikkelin tiedot on annettu', {
             window.newArticleMouseClicked()
