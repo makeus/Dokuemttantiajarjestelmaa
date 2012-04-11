@@ -79,11 +79,13 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dokuemttantiajärjestelmää");
         setBackground(new java.awt.Color(254, 254, 254));
+        setName("Form");
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         nav.setBackground(new java.awt.Color(254, 254, 254));
         nav.setBorder(new javax.swing.border.LineBorder(javax.swing.UIManager.getDefaults().getColor("InternalFrame.borderShadow"), 1, true));
         nav.setMaximumSize(new java.awt.Dimension(150, 32767));
+        nav.setName("nav");
         nav.setRequestFocusEnabled(false);
 
         newArticle.setBackground(new java.awt.Color(254, 254, 254));
@@ -92,6 +94,7 @@ public class GUI extends javax.swing.JFrame {
         newArticle.setBorder(null);
         newArticle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         newArticle.setFocusable(false);
+        newArticle.setName("newArticle");
         newArticle.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 newArticleMouseClicked(evt);
@@ -102,6 +105,7 @@ public class GUI extends javax.swing.JFrame {
         print.setText("  Print References");
         print.setBorder(null);
         print.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        print.setName("print");
         print.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 printMouseClicked(evt);
@@ -129,49 +133,79 @@ public class GUI extends javax.swing.JFrame {
 
         page1.setBackground(new java.awt.Color(254, 254, 254));
         page1.setBorder(javax.swing.BorderFactory.createLineBorder(javax.swing.UIManager.getDefaults().getColor("ComboBox.selectionBackground")));
+        page1.setName("page1");
 
         keywordtext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         keywordtext.setText("Keyword");
+        keywordtext.setName("keywordtext");
+
+        keyword.setName("keyword");
 
         authortext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         authortext.setText("Author");
+        authortext.setName("authortext");
+
+        author.setName("author");
 
         titletext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         titletext.setText("Title");
+        titletext.setName("titletext");
 
         journaltext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         journaltext.setText("Journal");
+        journaltext.setName("journaltext");
+
+        journal.setName("journal");
 
         volumetext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         volumetext.setText("Volume");
+        volumetext.setName("volumetext");
 
         volume.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        volume.setName("volume");
 
         numbertext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         numbertext.setText("Number");
+        numbertext.setName("numbertext");
 
         number.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        number.setName("number");
 
         yeartext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         yeartext.setText("Year");
+        yeartext.setName("yeartext");
 
         year.setModel(new javax.swing.SpinnerNumberModel(2012, 1800, 2201, 1));
         year.setEditor(new javax.swing.JSpinner.NumberEditor(year, "0000"));
         year.setFocusable(false);
+        year.setName("year");
 
         pagestext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         pagestext.setText("Pages");
+        pagestext.setName("pagestext");
+
+        pages1.setName("pages1");
 
         pagestext2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         pagestext2.setText("--");
+        pagestext2.setName("pagestext2");
+
+        pages2.setName("pages2");
 
         publishertext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         publishertext.setText("Publisher");
+        publishertext.setName("publishertext");
+
+        publisher.setName("publisher");
 
         addresstext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         addresstext.setText("Address");
+        addresstext.setName("addresstext");
+
+        address.setName("address");
 
         submit.setText("Add");
+        submit.setName("submit");
         submit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 submitMouseClicked(evt);
@@ -180,6 +214,9 @@ public class GUI extends javax.swing.JFrame {
 
         header2.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         header2.setText("New Article");
+        header2.setName("header2");
+
+        title.setName("title");
 
         org.jdesktop.layout.GroupLayout page1Layout = new org.jdesktop.layout.GroupLayout(page1);
         page1.setLayout(page1Layout);
@@ -281,33 +318,41 @@ public class GUI extends javax.swing.JFrame {
 
         page2.setBackground(new java.awt.Color(254, 254, 254));
         page2.setBorder(javax.swing.BorderFactory.createLineBorder(javax.swing.UIManager.getDefaults().getColor("ComboBox.selectionBackground")));
+        page2.setName("page2");
 
         header3.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         header3.setText("Print References");
+        header3.setName("header3");
 
         tabbedPane.setBackground(new java.awt.Color(254, 254, 254));
+        tabbedPane.setName("tabbedPane");
         tabbedPane.setOpaque(true);
 
         jScrollPane2.setBackground(new java.awt.Color(254, 254, 254));
+        jScrollPane2.setName("jScrollPane2");
 
         articleinfo.setBackground(new java.awt.Color(254, 254, 254));
         articleinfo.setEditable(false);
         articleinfo.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        articleinfo.setName("articleinfo");
         jScrollPane2.setViewportView(articleinfo);
 
         tabbedPane.addTab("     Info    ", jScrollPane2);
 
         jScrollPane3.setBackground(new java.awt.Color(254, 254, 254));
+        jScrollPane3.setName("jScrollPane3");
 
         articlecode.setBackground(new java.awt.Color(254, 254, 254));
         articlecode.setColumns(20);
         articlecode.setEditable(false);
         articlecode.setRows(5);
+        articlecode.setName("articlecode");
         jScrollPane3.setViewportView(articlecode);
 
         tabbedPane.addTab("    Code    ", jScrollPane3);
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setName("jScrollPane1");
 
         articles.setBorder(null);
         articles.setForeground(java.awt.Color.black);
@@ -317,6 +362,7 @@ public class GUI extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         articles.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        articles.setName("articles");
         articles.setListData(references.getArticles().toArray());
         articles.updateUI();
         articles.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -355,12 +401,15 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().add(page2);
 
         menuBar.setForeground(new java.awt.Color(124, 124, 124));
+        menuBar.setName("menuBar");
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
+        fileMenu.setName("fileMenu");
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Exit");
+        exitMenuItem.setName("exitMenuItem");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitMenuItemActionPerformed(evt);

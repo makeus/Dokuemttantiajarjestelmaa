@@ -7,18 +7,21 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7c" green="7c" red="7c" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="menuBar"/>
       </Properties>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="fileMenu">
           <Properties>
             <Property name="mnemonic" type="int" value="102"/>
             <Property name="text" type="java.lang.String" value="File"/>
+            <Property name="name" type="java.lang.String" value="fileMenu"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="exitMenuItem">
               <Properties>
                 <Property name="mnemonic" type="int" value="120"/>
                 <Property name="text" type="java.lang.String" value="Exit"/>
+                <Property name="name" type="java.lang.String" value="exitMenuItem"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitMenuItemActionPerformed"/>
@@ -35,6 +38,7 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="fe" green="fe" red="fe" type="rgb"/>
     </Property>
+    <Property name="name" type="java.lang.String" value="Form"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
@@ -42,7 +46,7 @@
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
-    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
     <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
     <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
@@ -70,6 +74,7 @@
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[150, 32767]"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="nav"/>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
 
@@ -109,6 +114,7 @@
               <Color id="Hand Cursor"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="newArticle"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="newArticleMouseClicked"/>
@@ -126,6 +132,7 @@
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="print"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="printMouseClicked"/>
@@ -145,6 +152,7 @@
             </LineBorder>
           </Border>
         </Property>
+        <Property name="name" type="java.lang.String" value="page1"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="currentpage = page1;"/>
@@ -273,9 +281,13 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Keyword"/>
+            <Property name="name" type="java.lang.String" value="keywordtext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="keyword">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="keyword"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="authortext">
           <Properties>
@@ -283,9 +295,13 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Author"/>
+            <Property name="name" type="java.lang.String" value="authortext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="author">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="author"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="titletext">
           <Properties>
@@ -293,6 +309,7 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Title"/>
+            <Property name="name" type="java.lang.String" value="titletext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="journaltext">
@@ -301,9 +318,13 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Journal"/>
+            <Property name="name" type="java.lang.String" value="journaltext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="journal">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="journal"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="volumetext">
           <Properties>
@@ -311,6 +332,7 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Volume"/>
+            <Property name="name" type="java.lang.String" value="volumetext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSpinner" name="volume">
@@ -318,6 +340,7 @@
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="volume"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="numbertext">
@@ -326,6 +349,7 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Number"/>
+            <Property name="name" type="java.lang.String" value="numbertext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSpinner" name="number">
@@ -333,6 +357,7 @@
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="number"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="yeartext">
@@ -341,6 +366,7 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Year"/>
+            <Property name="name" type="java.lang.String" value="yeartext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSpinner" name="year">
@@ -352,6 +378,7 @@
               <SpinnerEditor format="0000" type="3"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="year"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="pagestext">
@@ -360,9 +387,13 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pages"/>
+            <Property name="name" type="java.lang.String" value="pagestext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="pages1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pages1"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="pagestext2">
           <Properties>
@@ -370,9 +401,13 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="--"/>
+            <Property name="name" type="java.lang.String" value="pagestext2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="pages2">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pages2"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="publishertext">
           <Properties>
@@ -380,9 +415,13 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Publisher"/>
+            <Property name="name" type="java.lang.String" value="publishertext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="publisher">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="publisher"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="addresstext">
           <Properties>
@@ -390,13 +429,18 @@
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Address"/>
+            <Property name="name" type="java.lang.String" value="addresstext"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="address">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="address"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="submit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add"/>
+            <Property name="name" type="java.lang.String" value="submit"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="submitMouseClicked"/>
@@ -408,9 +452,13 @@
               <Font name="DejaVu Sans" size="24" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="New Article"/>
+            <Property name="name" type="java.lang.String" value="header2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="title">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="title"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -426,6 +474,7 @@
             </LineBorder>
           </Border>
         </Property>
+        <Property name="name" type="java.lang.String" value="page2"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="page2.setVisible(false);"/>
@@ -469,6 +518,7 @@
               <Font name="DejaVu Sans" size="24" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Print References"/>
+            <Property name="name" type="java.lang.String" value="header3"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JTabbedPane" name="tabbedPane">
@@ -476,6 +526,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="tabbedPane"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <AuxValues>
@@ -489,6 +540,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jScrollPane2"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -512,6 +564,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="articleinfo"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -521,6 +574,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="jScrollPane3"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -543,6 +597,7 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="name" type="java.lang.String" value="articlecode"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -554,6 +609,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jScrollPane1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -579,6 +635,7 @@
                   </StringArray>
                 </Property>
                 <Property name="selectionMode" type="int" value="1"/>
+                <Property name="name" type="java.lang.String" value="articles"/>
               </Properties>
               <Events>
                 <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="articleChanged"/>
