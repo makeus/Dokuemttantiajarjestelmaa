@@ -20,3 +20,4 @@ scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
 	then 'Tallennetut lähdeviitteet näytetään', {
             window.getCurrentpage().shouldHave("page2")
         }
+}
