@@ -25,7 +25,7 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             window.textBox("address").enterText("Omenakuja 3")
         }
         and 'Add painiketta painetaan', {
-            window.button("add").click()
+            window.button("submit").click()
         }
 	then 'Uusi artikkeli lisätään', {
             window.label("Article created").requireText("Article successfully created!")
