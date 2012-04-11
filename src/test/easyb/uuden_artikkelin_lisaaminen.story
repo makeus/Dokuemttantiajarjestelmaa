@@ -14,6 +14,6 @@ Scenario 'Käyttäjä lisää artikkelin tiedoilla' {
         articles.addArticle(article)
         }
 	then 'Uusi artikkeli lisätään'{
-        articles.getArticles().get(0)==article
+        articles.getArticles().get(0).getKeyword()=="ABC"
         }
 }
