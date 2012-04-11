@@ -7,8 +7,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Main {
 
-    public static void main(String[] args) {
-                
+    public static void main(String[] args) {     
                 ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-context.xml");
                 GUI gui = (GUI) ctx.getBean(GUI.class);
                 gui.setVisible(true);
