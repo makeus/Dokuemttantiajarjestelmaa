@@ -77,13 +77,13 @@ public class GUI extends javax.swing.JFrame {
         exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Dokuemttantiajärjestelmää");
         setBackground(new java.awt.Color(254, 254, 254));
-        setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         nav.setBackground(new java.awt.Color(254, 254, 254));
         nav.setBorder(new javax.swing.border.LineBorder(javax.swing.UIManager.getDefaults().getColor("InternalFrame.borderShadow"), 1, true));
-        nav.setPreferredSize(new java.awt.Dimension(150, 400));
+        nav.setMaximumSize(new java.awt.Dimension(150, 32767));
         nav.setRequestFocusEnabled(false);
 
         newArticle.setBackground(new java.awt.Color(254, 254, 254));
@@ -112,10 +112,8 @@ public class GUI extends javax.swing.JFrame {
         nav.setLayout(navLayout);
         navLayout.setHorizontalGroup(
             navLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(print, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(navLayout.createSequentialGroup()
-                .add(newArticle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 218, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 123, Short.MAX_VALUE))
+            .add(newArticle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(print, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
         );
         navLayout.setVerticalGroup(
             navLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -124,14 +122,13 @@ public class GUI extends javax.swing.JFrame {
                 .add(newArticle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(print, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 34, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(727, Short.MAX_VALUE))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
 
         getContentPane().add(nav);
 
         page1.setBackground(new java.awt.Color(254, 254, 254));
         page1.setBorder(javax.swing.BorderFactory.createLineBorder(javax.swing.UIManager.getDefaults().getColor("ComboBox.selectionBackground")));
-        page1.setPreferredSize(new java.awt.Dimension(542, 410));
 
         keywordtext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         keywordtext.setText("Keyword");
@@ -204,36 +201,31 @@ public class GUI extends javax.swing.JFrame {
                             .add(keywordtext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .add(28, 28, 28)
                         .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(journal, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(author, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(keyword, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(org.jdesktop.layout.GroupLayout.TRAILING, title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(page1Layout.createSequentialGroup()
+                                    .add(pages1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                    .add(pagestext2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                    .add(pages2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(address, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 359, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(page1Layout.createSequentialGroup()
-                                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                                        .add(org.jdesktop.layout.GroupLayout.LEADING, journal)
-                                        .add(org.jdesktop.layout.GroupLayout.LEADING, author)
-                                        .add(org.jdesktop.layout.GroupLayout.LEADING, keyword, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(title))
-                                    .add(page1Layout.createSequentialGroup()
-                                        .add(pages1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(pagestext2)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(pages2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                .add(0, 226, Short.MAX_VALUE))
-                            .add(page1Layout.createSequentialGroup()
-                                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                                    .add(org.jdesktop.layout.GroupLayout.LEADING, address, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-                                    .add(org.jdesktop.layout.GroupLayout.LEADING, page1Layout.createSequentialGroup()
-                                        .add(volume, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 63, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(numbertext)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(number, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                    .add(org.jdesktop.layout.GroupLayout.LEADING, submit)
-                                    .add(org.jdesktop.layout.GroupLayout.LEADING, year, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(org.jdesktop.layout.GroupLayout.LEADING, publisher))
-                                .addContainerGap())))
+                                .add(volume, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(numbertext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 69, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(number, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(submit)
+                            .add(year, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(publisher, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 359, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
                     .add(page1Layout.createSequentialGroup()
-                        .add(header2)
-                        .add(0, 0, Short.MAX_VALUE))))
+                        .add(header2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 154, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(353, Short.MAX_VALUE))))
         );
         page1Layout.setVerticalGroup(
             page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -256,7 +248,7 @@ public class GUI extends javax.swing.JFrame {
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(journaltext)
                     .add(journal, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(volumetext)
                     .add(numbertext)
@@ -282,14 +274,13 @@ public class GUI extends javax.swing.JFrame {
                     .add(address, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(submit)
-                .add(428, 428, 428))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(page1);
 
         page2.setBackground(new java.awt.Color(254, 254, 254));
         page2.setBorder(javax.swing.BorderFactory.createLineBorder(javax.swing.UIManager.getDefaults().getColor("ComboBox.selectionBackground")));
-        page2.setPreferredSize(new java.awt.Dimension(542, 400));
 
         header3.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         header3.setText("Print References");
@@ -340,27 +331,25 @@ public class GUI extends javax.swing.JFrame {
         page2Layout.setHorizontalGroup(
             page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(page2Layout.createSequentialGroup()
-                .add(35, 35, 35)
+                .add(33, 33, 33)
                 .add(page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(tabbedPane)
+                    .add(jScrollPane1)
                     .add(page2Layout.createSequentialGroup()
-                        .add(page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(tabbedPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 470, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jScrollPane1))
-                        .add(35, 35, 35))
-                    .add(page2Layout.createSequentialGroup()
-                        .add(header3)
-                        .addContainerGap())))
+                        .add(header3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .add(247, 247, 247)))
+                .add(37, 37, 37))
         );
         page2Layout.setVerticalGroup(
             page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(page2Layout.createSequentialGroup()
-                .add(30, 30, 30)
+                .add(34, 34, 34)
                 .add(header3)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(tabbedPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 213, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         getContentPane().add(page2);
