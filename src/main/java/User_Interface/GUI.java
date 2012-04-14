@@ -15,13 +15,15 @@ import javax.swing.*;
 public class GUI extends javax.swing.JFrame {
 
     private References references;
+    private KeywordGen keywordgen;
     private JPanel currentpage;
 
     /**
      * Creates new form GUI
      */
-    public GUI(References references) {
+    public GUI(References references, KeywordGen keywordgen) {
         this.references = references;
+        this.keywordgen = keywordgen;
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception ex) {
@@ -428,14 +430,16 @@ public class GUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    public String getCurrentpage(){
+    public String getCurrentpage() {
         return currentpage.getName();
     }
-    
+
     private void newArticleMouseClicked(MouseEvent evt) {//GEN-FIRST:event_newArticleMouseClicked
         currentpage.setVisible(false);
         page1.setVisible(true);
         currentpage = page1;
+        String[] lNames = {"Meikäläinen", "Virtanen"};
+        System.out.println(keywordgen.generateKeyword(lNames, 2012));
     }//GEN-LAST:event_newArticleMouseClicked
 
     private void submitMouseClicked(MouseEvent evt) {//GEN-FIRST:event_submitMouseClicked
@@ -492,7 +496,6 @@ public class GUI extends javax.swing.JFrame {
             articlecode.setText("");
         }
     }//GEN-LAST:event_articleChanged
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private javax.swing.JLabel addresstext;

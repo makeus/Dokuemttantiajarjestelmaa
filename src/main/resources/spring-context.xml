@@ -16,8 +16,12 @@
     <bean id="references" class="References.References" >
         <constructor-arg ref="articles" />
     </bean>
+    <bean id="keywordgen" class="User_Interface.KeywordGen" >
+        <constructor-arg ref="references" />
+    </bean>
     <bean id="gui" class="User_Interface.GUI" >
         <constructor-arg ref="references" />
+        <constructor-arg ref="keywordgen" />
     </bean>
     
 </beans>

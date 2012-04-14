@@ -58,6 +58,6 @@ public class Article {
     }
     @Override
     public String toString(){
-        return keyword + ", " + author + ": " + title;
+        return "Article: " + keyword + ", " + author + ": " + title;
     }
 }
