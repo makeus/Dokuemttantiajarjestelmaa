@@ -1,7 +1,5 @@
 package User_Interface;
 
-import Articles.Article;
-import Articles.Articles;
 import References.Reference;
 import References.References;
 import java.util.ArrayList;

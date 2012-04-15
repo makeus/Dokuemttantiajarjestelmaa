@@ -614,7 +614,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="articles">
+            <Component class="javax.swing.JList" name="referencelist">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -632,13 +632,13 @@
                   </StringArray>
                 </Property>
                 <Property name="selectionMode" type="int" value="1"/>
-                <Property name="name" type="java.lang.String" value="articles"/>
+                <Property name="name" type="java.lang.String" value="referencelist"/>
               </Properties>
               <Events>
                 <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="articleChanged"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="articles.setListData(references.getArticles().toArray());&#xa;articles.updateUI();"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="referencelist.setListData(references.getArticles().toArray());&#xa;referencelist.updateUI();"/>
               </AuxValues>
             </Component>
           </SubComponents>

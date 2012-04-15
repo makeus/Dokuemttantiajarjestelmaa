@@ -4,14 +4,14 @@
  */
 package User_Interface;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+import References.Article;
+import References.Reference;
 import References.References;
-import Articles.Article;
-import Data_Access.FileManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import javax.swing.*;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -19,9 +19,6 @@ public class GUI extends javax.swing.JFrame {
     private KeywordGen keywordgen;
     private JPanel currentpage;
 
-    /**
-     * Creates new form GUI
-     */
     public GUI(References references, KeywordGen keywordgen) {
         this.references = references;
         references.openFile("sigproc.bib");
@@ -75,7 +72,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         articlecode = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        articles = new javax.swing.JList();
+        referencelist = new javax.swing.JList();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         exitMenuItem = new javax.swing.JMenuItem();
@@ -130,7 +127,7 @@ public class GUI extends javax.swing.JFrame {
                 .add(newArticle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(print, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 34, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(727, Short.MAX_VALUE))
         );
 
         getContentPane().add(nav);
@@ -262,11 +259,9 @@ public class GUI extends javax.swing.JFrame {
                                 .add(number, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(submit)
                             .add(year, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(publisher, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 359, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .add(page1Layout.createSequentialGroup()
-                        .add(header2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 154, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(353, Short.MAX_VALUE))))
+                            .add(publisher, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 359, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(header2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 154, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(424, Short.MAX_VALUE))
         );
         page1Layout.setVerticalGroup(
             page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -315,7 +310,7 @@ public class GUI extends javax.swing.JFrame {
                     .add(address, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(submit)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
 
         getContentPane().add(page1);
@@ -358,23 +353,23 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane1.setBorder(null);
         jScrollPane1.setName("jScrollPane1");
 
-        articles.setBorder(null);
-        articles.setForeground(java.awt.Color.black);
-        articles.setModel(new javax.swing.AbstractListModel() {
+        referencelist.setBorder(null);
+        referencelist.setForeground(java.awt.Color.black);
+        referencelist.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        articles.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        articles.setName("articles");
-        articles.setListData(references.getArticles().toArray());
-        articles.updateUI();
-        articles.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        referencelist.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        referencelist.setName("referencelist");
+        referencelist.setListData(references.getArticles().toArray());
+        referencelist.updateUI();
+        referencelist.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 articleChanged(evt);
             }
         });
-        jScrollPane1.setViewportView(articles);
+        jScrollPane1.setViewportView(referencelist);
 
         org.jdesktop.layout.GroupLayout page2Layout = new org.jdesktop.layout.GroupLayout(page2);
         page2.setLayout(page2Layout);
@@ -386,7 +381,7 @@ public class GUI extends javax.swing.JFrame {
                     .add(tabbedPane)
                     .add(jScrollPane1)
                     .add(page2Layout.createSequentialGroup()
-                        .add(header3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
                         .add(247, 247, 247)))
                 .add(37, 37, 37))
         );
@@ -399,7 +394,7 @@ public class GUI extends javax.swing.JFrame {
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(tabbedPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 213, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
 
         getContentPane().add(page2);
@@ -440,13 +435,11 @@ public class GUI extends javax.swing.JFrame {
         currentpage.setVisible(false);
         page1.setVisible(true);
         currentpage = page1;
-        System.out.println(
-        references.saveAs("asd.bib"));
     }//GEN-LAST:event_newArticleMouseClicked
 
     private void submitMouseClicked(MouseEvent evt) {//GEN-FIRST:event_submitMouseClicked
-        Article article = new Article(keyword.getText(), title.getText(), author.getText(), journal.getText(), (Integer) volume.getValue(), (Integer) number.getValue(), (Integer) year.getValue(), pages1.getText() + "--" + pages2.getText(), publisher.getText(), address.getText());
-        references.addArticle(article);
+
+        references.addArticle(keyword.getText(), title.getText(), author.getText(), journal.getText(), (Integer) volume.getValue(), (Integer) number.getValue(), (Integer) year.getValue(), pages1.getText() + "--" + pages2.getText(), publisher.getText(), address.getText());
         JOptionPane.showMessageDialog(page1, "Article successfully created!", "Article created", JOptionPane.PLAIN_MESSAGE);
         keyword.setText("");
         title.setText("");
@@ -465,23 +458,14 @@ public class GUI extends javax.swing.JFrame {
         currentpage.setVisible(false);
         page2.setVisible(true);
         currentpage = page2;
-        articles.setListData(references.getArticles().toArray());
+        referencelist.setListData(references.getReferences().toArray());
     }//GEN-LAST:event_printMouseClicked
 
     private void articleChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_articleChanged
-        Article article = (Article) articles.getSelectedValue();
-        if (article != null) {
-            articleinfo.setText(
-                    " Keyword:\t\t" + article.getKeyword()
-                    + "\n Title:\t\t" + article.getTitle()
-                    + "\n Author:\t\t" + article.getAuthor()
-                    + "\n Number:\t\t" + article.getNumber()
-                    + "\n Volume:\t\t" + article.getVolume()
-                    + "\n Year:\t\t" + article.getYear()
-                    + "\n Journal:\t\t" + article.getJournal()
-                    + "\n Publisher:\t" + article.getPublisher()
-                    + "\n Address:\t\t" + article.getAddress());
-            articlecode.setText(article.getBibtex());
+        Reference reference = (Reference) referencelist.getSelectedValue();
+        if (reference != null) {
+            articleinfo.setText(reference.getInfo());
+            articlecode.setText(reference.getBibtex());
 
         } else {
             articleinfo.setText("");
@@ -493,7 +477,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel addresstext;
     private javax.swing.JTextArea articlecode;
     private javax.swing.JTextPane articleinfo;
-    private javax.swing.JList articles;
     private javax.swing.JTextField author;
     private javax.swing.JLabel authortext;
     private javax.swing.JMenuItem exitMenuItem;
@@ -521,6 +504,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel print;
     private javax.swing.JTextField publisher;
     private javax.swing.JLabel publishertext;
+    private javax.swing.JList referencelist;
     private javax.swing.JButton submit;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JTextField title;

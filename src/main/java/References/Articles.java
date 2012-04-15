@@ -1,4 +1,4 @@
-package Articles;
+package References;
 
 import Data_Access.FileManager;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class Articles {
         return articles;
     }
 
-    public void addArticle(Article article) {
-        articles.add(article);
+    public void addArticle(String keyword, String title, String author, String journal, int volume, int number, int year, String pages, String publisher, String address) {
+        articles.add(new Article(keyword, title, author, journal, volume, number, year, pages, publisher, address));
     }
 }

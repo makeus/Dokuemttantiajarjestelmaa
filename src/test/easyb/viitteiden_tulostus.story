@@ -1,23 +1,24 @@
 import App.*
-import Articles.*
 import References.*
 import User_Interface.*
+import Data_Access.*
 import org.fest.swing.fixture.* 
-import java.awt.Dimension
+import java.awt.Dimension;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 description 'Käyttäjä voi tulostaa tallennetut lähdeviitteet' 
 
 scenario 'Käyttäjä tulostaa tallennetut lähdeviitteet', {
 	given 'Käyttäjä avaa ohjelman', {
-            artikkelit = new Articles()
-            referenssit = new References(artikkelit) 
-            window = new GUI(referenssit)
-            //window.show()
+            ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-context.xml");
+            window = (GUI) ctx.getBean(GUI.class);
+            //window.show();
         }
         when 'käyttäjä valitsee tulosta lähdeviitteet', {
-            window.printMouseClicked()
+            window.printMouseClicked();
         }
 	then 'Tallennetut lähdeviitteet näytetään', {
-            window.getCurrentpage().shouldHave("page2")
+            window.getCurrentpage().shouldHave("page2");
         }
 }

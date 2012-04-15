@@ -11,13 +11,21 @@
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
     
     <context:annotation-config />
-    <context:component-scan base-package="Articles" />  
+    <context:component-scan base-package="References" />  
     <bean id="files" class="Data_Access.FileManager" />
-    <bean id="articles" class="Articles.Articles" >
+    <bean id="articles" class="References.Articles" >
+        <constructor-arg ref="files" />
+    </bean>
+    <bean id="books" class="References.Books" >
+        <constructor-arg ref="files" />
+    </bean>
+    <bean id="inproceedings" class="References.Inproceedings" >
         <constructor-arg ref="files" />
     </bean>
     <bean id="references" class="References.References" >
         <constructor-arg ref="articles" />
+        <constructor-arg ref="books" />
+        <constructor-arg ref="inproceedings" />
         <constructor-arg ref="files" />
     </bean>
     <bean id="keywordgen" class="User_Interface.KeywordGen" >

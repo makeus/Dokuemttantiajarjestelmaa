@@ -1,14 +1,14 @@
 package Data_Access;
 
-import Articles.Article;
-import References.Reference;
+import References.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import org.junit.*;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 public class FileManagerTest {
 
@@ -82,7 +82,7 @@ public class FileManagerTest {
         File file = new File(filename);
         file.delete();
     }
-    
+
     @Test
     public void testSaveFileNone() {
         List<Reference> references = new ArrayList<Reference>();
@@ -99,6 +99,7 @@ public class FileManagerTest {
 
             String keyword = "asd";
             String bibTex = "@article{asd\ntitle = adventure of dasd,\n}\n";
+            String info = "asd, title = adventure of dasd";
 
             public String getKeyword() {
                 return keyword;
@@ -106,6 +107,11 @@ public class FileManagerTest {
 
             public String getBibtex() {
                 return bibTex;
+            }
+
+            public String getInfo() {
+                return info;
+
             }
         };
         references.add(ref);
@@ -140,6 +146,34 @@ public class FileManagerTest {
     }
 
     @Test
+    public void testGetBooksEmpty() {
+        String filename = "test.test";
+        List<Reference> references = new ArrayList<Reference>();
+
+        assertTrue(fileManager.createFile(filename));
+        assertTrue(fileManager.saveFile(references));
+        assertTrue(fileManager.getBooks().isEmpty());
+
+        File file = new File(filename);
+        file.delete();
+
+    }
+
+    @Test
+    public void testGetInproceedingsEmpty() {
+        String filename = "test.test";
+        List<Reference> references = new ArrayList<Reference>();
+
+        assertTrue(fileManager.createFile(filename));
+        assertTrue(fileManager.saveFile(references));
+        assertTrue(fileManager.getInproceedings().isEmpty());
+
+        File file = new File(filename);
+        file.delete();
+
+    }
+
+    @Test
     public void testGetArticles() {
         String filename = "test.test";
         List<Reference> references = new ArrayList<Reference>();
@@ -150,16 +184,64 @@ public class FileManagerTest {
         assertTrue(fileManager.createFile(filename));
         assertTrue(fileManager.saveFile(references));
 
-        assertEquals(article1.getKeyword(), fileManager.getArticles().get(0).getKeyword());
-        assertEquals(article1.getAuthor(), fileManager.getArticles().get(0).getAuthor());
+        assertEquals(article1.getBibtex(), fileManager.getArticles().get(0).getBibtex());
 
         File file = new File(filename);
         file.delete();
 
     }
+
     @Test
-    public void testGetArticlesNone(){
+    public void testGetBooks() {
+        String filename = "test.test";
+        List<Reference> references = new ArrayList<Reference>();
+        Book book1 = new Book("BA04", "Extreme Programming Explained: Embrace Change (2nd Edition)", "L. S. Vygotsky", 1978, "Harvard University Press");
+
+        references.add(book1);
+
+        assertTrue(fileManager.createFile(filename));
+        assertTrue(fileManager.saveFile(references));
+
+        assertEquals(book1.getBibtex(), fileManager.getBooks().get(0).getBibtex());
+
+        File file = new File(filename);
+        file.delete();
+
+    }
+
+    @Test
+    public void testGetInproceedings() {
+        String filename = "test.test";
+        List<Reference> references = new ArrayList<Reference>();
+        Inproceeding inproceeding1 = new Inproceeding("PSMM07", "A survey of literature on the teaching of introductory programming", "Pears, Arnold and Seidman, Stephen and Malmi, Lauri and Mannila, Linda and Adams, Elizabeth and Bennedsen, Jens and Devlin, Marie and Paterson, James", 2007, "ACM", "ITiCSE-WGR '07: Working group reports on ITiCSE on Innovation and technology in computer science education", "204--223");
+
+        references.add(inproceeding1);
+
+        assertTrue(fileManager.createFile(filename));
+        assertTrue(fileManager.saveFile(references));
+        
+        assertEquals(inproceeding1.getAuthor(), fileManager.getInproceedings().get(0).getAuthor());
+        assertEquals(inproceeding1.getKeyword(), fileManager.getInproceedings().get(0).getKeyword());
+
+        
+        File file = new File(filename);
+        file.delete();
+
+    }
+
+    @Test
+    public void testGetArticlesNone() {
         assertTrue(fileManager.getArticles().isEmpty());
+    }
+
+    @Test
+    public void testGetBooksNone() {
+        assertTrue(fileManager.getBooks().isEmpty());
+    }
+
+    @Test
+    public void testGetInproceedingsNone() {
+        assertTrue(fileManager.getInproceedings().isEmpty());
     }
 
     @Test

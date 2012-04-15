@@ -1,18 +1,21 @@
 import App.*
-import Articles.*
 import References.*
 import User_Interface.*
+import Data_Access.*
 import org.fest.swing.fixture.* 
 import java.awt.Dimension
 import java.util.List
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 description 'Käyttäjä voi lisätä artikkelin lähdeviitteenä oikeilla tai väärilla tiedoilla' 
 
 scenario 'Käyttäjä lisää artikkelin tiedoilla', {
 	given 'Artikkelin lisäys valittu', {
-            artikkelit = new Articles()
-            referenssit = new References(artikkelit) 
-            window = new GUI(referenssit)
+            ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-context.xml");
+            referenssit = (References) ctx.getBean(References.class);
+            window = (GUI) ctx.getBean(GUI.class);
             //window.show()
         }
 	when 'Artikkelin tiedot on annettu', {
