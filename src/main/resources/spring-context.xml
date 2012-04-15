@@ -12,9 +12,13 @@
     
     <context:annotation-config />
     <context:component-scan base-package="Articles" />  
-    <bean id="articles" class="Articles.Articles" />
+    <bean id="files" class="Data_Access.FileManager" />
+    <bean id="articles" class="Articles.Articles" >
+        <constructor-arg ref="files" />
+    </bean>
     <bean id="references" class="References.References" >
         <constructor-arg ref="articles" />
+        <constructor-arg ref="files" />
     </bean>
     <bean id="keywordgen" class="User_Interface.KeywordGen" >
         <constructor-arg ref="references" />

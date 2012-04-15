@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import References.References;
 import Articles.Article;
+import Data_Access.FileManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
@@ -23,6 +24,7 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI(References references, KeywordGen keywordgen) {
         this.references = references;
+        references.openFile("sigproc.bib");
         this.keywordgen = keywordgen;
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -438,8 +440,8 @@ public class GUI extends javax.swing.JFrame {
         currentpage.setVisible(false);
         page1.setVisible(true);
         currentpage = page1;
-        String[] lNames = {"Meikäläinen", "Virtanen"};
-        System.out.println(keywordgen.generateKeyword(lNames, 2012));
+        System.out.println(
+        references.saveAs("asd.bib"));
     }//GEN-LAST:event_newArticleMouseClicked
 
     private void submitMouseClicked(MouseEvent evt) {//GEN-FIRST:event_submitMouseClicked
@@ -479,18 +481,8 @@ public class GUI extends javax.swing.JFrame {
                     + "\n Journal:\t\t" + article.getJournal()
                     + "\n Publisher:\t" + article.getPublisher()
                     + "\n Address:\t\t" + article.getAddress());
-            articlecode.setText(
-                    "@article{" + article.getKeyword() + ",\n"
-                    + "author = {" + article.getAuthor() + "},\n"
-                    + "title = {" + article.getTitle() + "},\n"
-                    + "journal = {" + article.getJournal() + "},\n"
-                    + "volume = {" + article.getVolume() + "},\n"
-                    + "number = {" + article.getNumber() + "},\n"
-                    + "year = {" + article.getYear() + "},\n"
-                    + "pages = {" + article.getPages() + "},\n"
-                    + "publisher = {" + article.getPublisher() + "},\n"
-                    + "address = {" + article.getAddress() + "},\n"
-                    + "}");
+            articlecode.setText(article.getBibtex());
+
         } else {
             articleinfo.setText("");
             articlecode.setText("");

@@ -1,7 +1,9 @@
 package Articles;
 
+import References.Reference;
 
-public class Article {
+
+public class Article implements Reference{
     private String keyword;
     private String title;
     private String author;
@@ -60,4 +62,20 @@ public class Article {
     public String toString(){
         return "Article: " + keyword + ", " + author + ": " + title;
     }
+    
+    public String getBibtex(){
+        return "@article{" + this.getKeyword() + ",\n"
+               + "author = {" + this.getAuthor() + "},\n"
+               + "title = {" + this.getTitle() + "},\n"
+               + "journal = {" + this.getJournal() + "},\n"
+               + "volume = {" + this.getVolume() + "},\n"
+               + "number = {" + this.getNumber() + "},\n"
+               + "year = {" + this.getYear() + "},\n"
+               + "pages = {" + this.getPages() + "},\n"
+               + "publisher = {" + this.getPublisher() + "},\n"
+               + "address = {" + this.getAddress() + "},\n"
+               + "}\n";
+    }
+    
+    
 }
