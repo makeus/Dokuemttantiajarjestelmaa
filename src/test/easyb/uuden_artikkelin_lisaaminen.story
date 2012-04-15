@@ -35,6 +35,6 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             window.submit.doClick(2)
         }
 	then 'Uusi artikkeli lisätään', {
-            !referenssit.getArticles().isEmpty()
+            !referenssit.getReferences().isEmpty()
         }
 }
