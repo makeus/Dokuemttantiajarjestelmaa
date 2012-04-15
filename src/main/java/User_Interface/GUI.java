@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package User_Interface;
 
-import References.Article;
 import References.Reference;
 import References.References;
 import java.awt.event.ActionEvent;
@@ -362,7 +357,7 @@ public class GUI extends javax.swing.JFrame {
         });
         referencelist.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         referencelist.setName("referencelist");
-        referencelist.setListData(references.getArticles().toArray());
+        referencelist.setListData(references.getReferences().toArray());
         referencelist.updateUI();
         referencelist.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -439,7 +434,22 @@ public class GUI extends javax.swing.JFrame {
 
     private void submitMouseClicked(MouseEvent evt) {//GEN-FIRST:event_submitMouseClicked
 
-        references.addArticle(keyword.getText(), title.getText(), author.getText(), journal.getText(), (Integer) volume.getValue(), (Integer) number.getValue(), (Integer) year.getValue(), pages1.getText() + "--" + pages2.getText(), publisher.getText(), address.getText());
+        Reference reference = new Reference();
+        reference.setType("@article");
+        reference.setKeyword(keyword.getText());
+        reference.setTitle(title.getText());
+        reference.setAuthor(author.getText());
+        reference.setJournal(journal.getText());
+        reference.setVolume((Integer) volume.getValue());
+        reference.setNumber((Integer) number.getValue());
+        reference.setYear((Integer) year.getValue());
+        reference.setPages(pages1.getText() + "--" + pages2.getText());
+        reference.setPublisher(publisher.getText());
+        reference.setAddress(address.getText());
+        
+        references.addReference(reference);
+
+
         JOptionPane.showMessageDialog(page1, "Article successfully created!", "Article created", JOptionPane.PLAIN_MESSAGE);
         keyword.setText("");
         title.setText("");

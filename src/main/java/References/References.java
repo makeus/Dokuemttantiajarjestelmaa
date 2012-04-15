@@ -5,41 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class References {
-
-    private Articles articles;
-    private Books books;
-    private Inproceedings inproceedings;
+ 
     private FileManager fileManager;
+    private List<Reference> references;
 
-    public References(FileManager fileManager, Articles articles, Books books, Inproceedings inproceedings) {
+    public References(FileManager fileManager) {
         this.fileManager = fileManager;
-        this.books = books;
-        this.inproceedings = inproceedings;
-        this.articles = articles;
+        references = new ArrayList<Reference>();
     }
 
-    public void addArticle(String keyword, String title, String author, String journal, int volume, int number, int year, String pages, String publisher, String address) {
-        articles.addArticle(keyword, title, author, journal, volume, number, year, pages, publisher, address);
-    }
-
-    public List<Article> getArticles() {
-        return articles.getArticles();
-    }
-
-    public void addBook(String keyword, String title, String author, int year, String publisher) {
-        books.addBook(keyword, title, author, year, publisher);
-    }
-
-    public List<Book> getBooks() {
-        return books.getBooks();
-    }
-
-    public void addInproceeding(String keyword, String title, String author, int year, String publisher, String booktitle, String pages) {
-        inproceedings.addInproceeding(keyword, title, author, year, publisher, booktitle, pages);
-    }
-
-    public List<Inproceeding> getInproceeding() {
-        return inproceedings.getInproceedings();
+    public void addReference(Reference reference){
+        references.add(reference);
     }
 
     public boolean openFile(String filename) {
@@ -59,17 +35,21 @@ public class References {
     }
 
     public List<Reference> getReferences() {
-        List<Reference> ret = new ArrayList<Reference>();
-        for (Article article : articles.getArticles()) {
-            ret.add(article);
-        }
-        for (Book book : books.getBooks()) {
-            ret.add(book);
-        }
-        for (Inproceeding inproceeding : inproceedings.getInproceedings()) {
-            ret.add(inproceeding);
+        if (fileManager.isOpen()) {
+            List<Reference> infile = fileManager.getReference();
+            for (Reference article : infile) {
+                boolean contains = false;
+                for (Reference inarticles : references) {
+                    if (inarticles.getKeyword().equals(article.getKeyword())) {
+                        contains = true;
+                    }
+                }
+                if (!contains) {
+                    references.add(article);
+                }
+            }
         }
 
-        return ret;
+        return references;
     }
 }

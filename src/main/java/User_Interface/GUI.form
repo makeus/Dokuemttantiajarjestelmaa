@@ -638,7 +638,7 @@
                 <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="articleChanged"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="referencelist.setListData(references.getArticles().toArray());&#xa;referencelist.updateUI();"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="referencelist.setListData(references.getReferences().toArray());&#xa;referencelist.updateUI();"/>
               </AuxValues>
             </Component>
           </SubComponents>

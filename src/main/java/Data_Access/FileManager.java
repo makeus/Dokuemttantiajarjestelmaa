@@ -1,8 +1,5 @@
 package Data_Access;
 
-import References.Article;
-import References.Book;
-import References.Inproceeding;
 import References.Reference;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -72,8 +70,8 @@ public class FileManager {
 
     }
 
-    public List<Article> getArticles() {
-        List<Article> list = new ArrayList<Article>();
+    public List<Reference> getReference() {
+        List<Reference> list = new ArrayList<Reference>();
 
         if (file != null && file.exists()) {
 
@@ -86,21 +84,25 @@ public class FileManager {
 
             String rivi;
 
+            String type;
             String keyword;
-            String title = null;
-            String author = null;
-            String journal = null;
+            String title = "";
+            String author = "";
+            String journal = "";
             int volume = 0;
             int number = 0;
             int year = 0;
-            String pages = null;
-            String publisher = null;
-            String address = null;
+            String pages = "";
+            String publisher = "";
+            String address = "";
+            String booktitle = "";
 
             while (lukija.hasNextLine()) {
                 rivi = lukija.nextLine();
-                if (rivi.toLowerCase().contains("@article")) {
-                    keyword = getKeyword(rivi, "@article");
+                if (rivi.contains("@")) {
+                    type = getType(rivi);
+                    keyword = getKeyword(rivi, type);
+
                     title = "";
                     author = "";
                     journal = "";
@@ -110,160 +112,72 @@ public class FileManager {
                     pages = "";
                     publisher = "";
                     address = "";
-                    
-                    do {
-                        rivi = lukija.nextLine();
-                        if (rivi.toLowerCase().contains("title")) {
-                            title = getContents(rivi, 2);
-                        }
-                        if (rivi.toLowerCase().contains("author")) {
-                            author = getContents(rivi, 2);
-                        }
-                        if (rivi.toLowerCase().contains("journal")) {
-                            journal = getContents(rivi, 2);
-                        }
-                        if (rivi.toLowerCase().contains("volume")) {
-                            volume = new Integer(getContents(rivi, 2)).intValue();
-                        }
-                        if (rivi.toLowerCase().contains("number")) {
-                            number = new Integer(getContents(rivi, 2)).intValue();
-                        }
-                        if (rivi.toLowerCase().contains("year")) {
-                            year = new Integer(getContents(rivi, 2)).intValue();
-                        }
-                        if (rivi.toLowerCase().contains("pages")) {
-                            pages = getContents(rivi, 2);
-                        }
-                        if (rivi.toLowerCase().contains("publisher")) {
-                            publisher = getContents(rivi, 2);
-                        }
-                        if (rivi.toLowerCase().contains("address")) {
-                            address = getContents(rivi, 2);
-                        }
-
-                    } while (!rivi.contains("@") && lukija.hasNextLine());
-                    list.add(new Article(keyword, title, author, journal, volume, number, year, pages, publisher, address));
-                }
-            }
-            lukija.close();
-        }
-        return list;
-    }
-
-    public List<Book> getBooks() {
-        List<Book> list = new ArrayList<Book>();
-
-        if (file != null && file.exists()) {
-
-            Scanner lukija;
-            try {
-                lukija = new Scanner(file);
-            } catch (FileNotFoundException fileNotFoundException) {
-                return list;
-            }
-
-            String rivi;
-
-            String keyword;
-            String title = null;
-            String author = null;
-            int year = 0;
-            String publisher = null;
-
-            while (lukija.hasNextLine()) {
-                rivi = lukija.nextLine();
-                if (rivi.toLowerCase().contains("@book")) {
-
-                    keyword = getKeyword(rivi, "@book");
-                    title = "";
-                    author = "";
-                    year = 0;
-                    publisher = "";
-
-                    do {
-                        rivi = lukija.nextLine();
-                        if (rivi.toLowerCase().contains("title")) {
-                            title = getContents(rivi, 2);
-                        }
-                        if (rivi.toLowerCase().contains("author")) {
-                            author = getContents(rivi, 2);
-                        }
-                        if (rivi.toLowerCase().contains("year")) {
-                            year = new Integer(getContents(rivi, 2)).intValue();
-                        }
-                        if (rivi.toLowerCase().contains("publisher")) {
-                            publisher = getContents(rivi, 2);
-                        }
-                    } while (!rivi.contains("@") && lukija.hasNextLine());
-                    list.add(new Book(keyword, title, author, year, publisher));
-                }
-            }
-            lukija.close();
-        }
-        return list;
-    }
-
-    public List<Inproceeding> getInproceedings() {
-        List<Inproceeding> list = new ArrayList<Inproceeding>();
-
-        if (file != null && file.exists()) {
-
-            Scanner lukija;
-            try {
-                lukija = new Scanner(file);
-            } catch (FileNotFoundException fileNotFoundException) {
-                return list;
-            }
-
-            String rivi;
-
-            String keyword;
-            String title = "";
-            String author = "";
-            int year = 0;
-            String publisher = "";
-            String pages = "";
-            String booktitle = "";
-
-            while (lukija.hasNextLine()) {
-                rivi = lukija.nextLine();
-                if (rivi.toLowerCase().contains("@inproceeding")) {
-
-                    keyword = getKeyword(rivi, "@inproceeding");
-                    title = "";
-                    author = "";
-                    year = 0;
-                    publisher = "";
-                    pages = "";
                     booktitle = "";
 
                     do {
                         rivi = lukija.nextLine();
                         if (rivi.toLowerCase().contains("title")) {
-                            title = getContents(rivi, 2);
+                            title = getContents(rivi);
                         }
                         if (rivi.toLowerCase().contains("author")) {
-                            author = getContents(rivi, 2);
+                            author = getContents(rivi);
+                        }
+                        if (rivi.toLowerCase().contains("journal")) {
+                            journal = getContents(rivi);
                         }
                         if (rivi.toLowerCase().contains("booktitle")) {
-                            booktitle = getContents(rivi, 2);
+                            booktitle = getContents(rivi);
                         }
-                        if (rivi.toLowerCase().contains("pages")) {
-                            pages = getContents(rivi, 2);
+                        if (rivi.toLowerCase().contains("volume")) {
+                            volume = new Integer(getContents(rivi)).intValue();
+                        }
+                        if (rivi.toLowerCase().contains("number")) {
+                            number = new Integer(getContents(rivi)).intValue();
                         }
                         if (rivi.toLowerCase().contains("year")) {
-                            year = new Integer(getContents(rivi, 2)).intValue();
+                            year = new Integer(getContents(rivi)).intValue();
+                        }
+                        if (rivi.toLowerCase().contains("pages")) {
+                            pages = getContents(rivi);
                         }
                         if (rivi.toLowerCase().contains("publisher")) {
-                            publisher = getContents(rivi, 2);
+                            publisher = getContents(rivi);
                         }
+                        if (rivi.toLowerCase().contains("address")) {
+                            address = getContents(rivi);
+                        }
+
                     } while (!rivi.contains("@") && lukija.hasNextLine());
-                    list.add(new Inproceeding(keyword, title, author, year, publisher, booktitle, pages));
+                    Reference reference = new Reference();
+                    reference.setType(type);
+                    reference.setKeyword(keyword);
+                    reference.setAuthor(author);
+                    reference.setTitle(title);
+                    reference.setYear(year);
+                    reference.setVolume(volume);
+                    reference.setAddress(address);
+                    reference.setPublisher(publisher);
+                    reference.setPages(pages);
+                    reference.setBooktitle(booktitle);
+                    reference.setNumber(number);
+                    reference.setJournal(journal);
+
+                    list.add(reference);
                 }
             }
             lukija.close();
         }
         return list;
+    }
+
+    private String getType(String rivi) {
+        String type;
+        if (rivi.split("\\{").length == 1) {
+            type = rivi.split("\\(")[0];
+        } else {
+            type = rivi.split("\\{")[0];
+        }
+        return type;
     }
 
     private String getKeyword(String rivi, String type) {
@@ -284,7 +198,7 @@ public class FileManager {
         return fileopen;
     }
 
-    private String getContents(String rivi, int l) {
+    private String getContents(String rivi) {
         String str;
 
         String[] row;

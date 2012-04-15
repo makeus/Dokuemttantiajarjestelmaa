@@ -1,7 +1,5 @@
 package User_Interface;
 
-import References.Article;
-import References.Articles;
 import References.Reference;
 import References.References;
 import java.util.ArrayList;
@@ -14,61 +12,70 @@ import sun.invoke.empty.Empty;
 public class KeywordGenTest {
 
     KeywordGen keywordgen;
-    References reference;
+    References references;
 
     public KeywordGenTest() {
     }
 
     @Before
     public void setUp() {
-        reference = mock(References.class);
-        keywordgen = new KeywordGen(reference);
+        references = mock(References.class);
+        keywordgen = new KeywordGen(references);
     }
 
     @Test
     public void testGenerateKeyword() {
         String[] lNames = {"Meikäläinen", "Virtanen"};
-        int year = 2012;      
+        int year = 2012;
         List<Reference> list = new ArrayList<Reference>();
-        when(reference.getReferences()).thenReturn(list);      
+        when(references.getReferences()).thenReturn(list);
         String keyword = keywordgen.generateKeyword(lNames, year);
         assertEquals("MV12", keywordgen.generateKeyword(lNames, year));
-        
+
     }
+
     @Test
     public void testGenerateKeywordTaken() {
         String[] lNames = {"Meikäläinen", "Virtanen"};
-        int year = 2012;      
-        Article article = new Article("MV12", "Infusing active learning into introductory programming courses", "Whittington, Keith J", "J. Comput. Small Coll", 19, 5, 2004, "249--259", "Consortium for..", "USA");
-        
+        int year = 2012;
+        Reference reference = new Reference();
+        reference.setType("@article");
+        reference.setKeyword("MV12");
+
         List<Reference> list = new ArrayList<Reference>();
-        list.add(article);
-        
-        when(reference.getReferences()).thenReturn(list);
-        
+        list.add(reference);
+
+        when(references.getReferences()).thenReturn(list);
+
         assertNotSame("MV12", keywordgen.generateKeyword(lNames, year));
-        
+
     }
-    
+
     @Test
     public void testGenerateKeywordTakenTwice() {
         String[] lNames = {"Meikäläinen", "Virtanen"};
-        
-        int year = 2012;      
+
         String keyword1 = "MV12";
-        Article article1 = new Article(keyword1, "Infusing active learning into introductory programming courses", "Whittington, Keith J", "J. Comput. Small Coll", 19, 5, 2004, "249--259", "Consortium for..", "USA");
         String keyword2 = "MV12a";
-        Article article2 = new Article(keyword2, "Infusing active learning into introductory programming courses", "Whittington, Keith J", "J. Comput. Small Coll", 19, 5, 2004, "249--259", "Consortium for..", "USA");
         
+        int year = 2012;
+        List<Reference> expected = new ArrayList<Reference>();
+        Reference reference1 = new Reference();
+        reference1.setType("@article");
+        reference1.setKeyword(keyword1);
+
+        Reference reference2 = new Reference();
+        reference2.setType("@book");
+        reference2.setKeyword(keyword2);
+
         List<Reference> list = new ArrayList<Reference>();
-        list.add(article1);
-        list.add(article2);
-        
-        when(reference.getReferences()).thenReturn(list);
-        
+        list.add(reference1);
+        list.add(reference2);
+
+        when(references.getReferences()).thenReturn(list);
+
         assertNotSame(keyword1, keywordgen.generateKeyword(lNames, year));
         assertNotSame(keyword2, keywordgen.generateKeyword(lNames, year));
-        
+
     }
-            
 }
