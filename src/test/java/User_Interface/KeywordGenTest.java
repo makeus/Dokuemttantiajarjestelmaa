@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import sun.invoke.empty.Empty;
+
 
 public class KeywordGenTest {
 

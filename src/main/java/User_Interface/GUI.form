@@ -82,7 +82,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="newArticle" max="32767" attributes="0"/>
-              <Component id="print" pref="139" max="32767" attributes="0"/>
+              <Component id="print" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -106,7 +106,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="DejaVu Sans" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="  New Article"/>
+            <Property name="text" type="java.lang.String" value="  New Reference"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -167,31 +167,26 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="journaltext" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="titletext" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="volumetext" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="yeartext" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="authortext" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
                               <Component id="pagestext" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="publishertext" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="addresstext" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="keywordtext" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="keywordtext" min="-2" pref="61" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="journal" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
-                                  <Component id="author" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
-                                  <Component id="keyword" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
-                                  <Component id="title" alignment="1" min="-2" pref="379" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="pages1" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="pagestext2" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="pages2" min="-2" pref="38" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                               <Component id="address" alignment="0" min="-2" pref="359" max="-2" attributes="0"/>
+                              <Component id="publisher" alignment="0" min="-2" pref="359" max="-2" attributes="0"/>
+                              <Component id="keyword" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="pages1" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Component id="pagestext2" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Component id="pages2" min="-2" pref="38" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="submit" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="volume" min="-2" pref="53" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -199,14 +194,37 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Component id="number" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="submit" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="year" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="publisher" alignment="0" min="-2" pref="359" max="-2" attributes="0"/>
+                              <Component id="journal" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="header2" min="-2" pref="154" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="titletext" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="authortext" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="booktitletext" min="-2" max="-2" attributes="0"/>
+                              <Component id="notetext" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="title" pref="438" max="32767" attributes="0"/>
+                                  <Component id="booktitle" alignment="0" pref="438" max="32767" attributes="0"/>
+                                  <Component id="note" alignment="0" pref="438" max="32767" attributes="0"/>
+                                  <Component id="addmore" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="author" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="typetext" min="-2" pref="61" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="type" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="header2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="424" max="32767" attributes="0"/>
+                  <EmptySpace pref="197" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -217,18 +235,32 @@
                   <Component id="header2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="keyword" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="keywordtext" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="typetext" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="type" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="author" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="authortext" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane4" min="-2" pref="85" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="addmore" min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="titletext" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="title" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="booktitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="booktitletext" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="note" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="notetext" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -264,9 +296,14 @@
                       <Component id="addresstext" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="address" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="keyword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="keywordtext" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="submit" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="420" max="32767" attributes="0"/>
+                  <EmptySpace pref="207" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -318,9 +355,9 @@
             <Property name="name" type="java.lang.String" value="journaltext"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="journal">
+        <Component class="javax.swing.JTextField" name="booktitle">
           <Properties>
-            <Property name="name" type="java.lang.String" value="journal"/>
+            <Property name="name" type="java.lang.String" value="booktitle"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="volumetext">
@@ -377,6 +414,9 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="name" type="java.lang.String" value="year"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="yearStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="pagestext">
           <Properties>
@@ -448,7 +488,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="DejaVu Sans" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="New Article"/>
+            <Property name="text" type="java.lang.String" value="New Reference"/>
             <Property name="name" type="java.lang.String" value="header2"/>
           </Properties>
         </Component>
@@ -457,6 +497,98 @@
             <Property name="name" type="java.lang.String" value="title"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="typetext">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DejaVu Sans" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Type"/>
+            <Property name="name" type="java.lang.String" value="typetext"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="type">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="@book"/>
+                <StringItem index="1" value="@article"/>
+                <StringItem index="2" value="@inproceeding"/>
+                <StringItem index="3" value="@misc"/>
+              </StringArray>
+            </Property>
+            <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;@book&quot;" type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="type"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="typeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="journal">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="journal"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="booktitletext">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DejaVu Sans" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Booktitle"/>
+            <Property name="name" type="java.lang.String" value="booktitletext"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="note">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="note"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="notetext">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="DejaVu Sans" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Note"/>
+            <Property name="name" type="java.lang.String" value="notetext"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="addmore">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="add author"/>
+            <Property name="name" type="java.lang.String" value="addmore"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addmoreActionPerformed"/>
+          </Events>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="jScrollPane4"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="authorlist">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2e" green="2e" red="2e" type="rgb"/>
+                </Property>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="authorlist"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JList( listData )"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="listData = new Vector();"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="page2">
@@ -486,7 +618,7 @@
                       <Component id="tabbedPane" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="header3" pref="418" max="32767" attributes="0"/>
+                          <Component id="header3" pref="602" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                       </Group>
                   </Group>
