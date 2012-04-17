@@ -27,6 +27,7 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception ex) {
         }
         initComponents();
+        typeActionPerformed(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -85,6 +86,9 @@ public class GUI extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         exitMenuItem = new javax.swing.JMenuItem();
+        open = new javax.swing.JMenuItem();
+        saveas = new javax.swing.JMenuItem();
+        save = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dokuemttantiajärjestelmää");
@@ -499,6 +503,33 @@ public class GUI extends javax.swing.JFrame {
         });
         fileMenu.add(exitMenuItem);
 
+        open.setText("Open file");
+        open.setName("open");
+        open.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openActionPerformed(evt);
+            }
+        });
+        fileMenu.add(open);
+
+        saveas.setText("Save file as");
+        saveas.setName("saveas");
+        saveas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveasActionPerformed(evt);
+            }
+        });
+        fileMenu.add(saveas);
+
+        save.setText("Save file");
+        save.setName("save");
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
+        fileMenu.add(save);
+
         menuBar.add(fileMenu);
 
         setJMenuBar(menuBar);
@@ -526,9 +557,13 @@ public class GUI extends javax.swing.JFrame {
         reference.setType(type.getSelectedItem().toString());
         reference.setTitle(title.getText());
         reference.setBooktitle(booktitle.getText());
-        String asd="";
+        String asd = "";
         for (int i = 0; i < authorlist.getModel().getSize(); i++) {
-            asd = asd + authorlist.getModel().getElementAt(i).toString() + " ";
+            if (i + 1 == authorlist.getModel().getSize()) {
+                asd = asd + authorlist.getModel().getElementAt(i).toString();
+            } else {
+                asd = asd + authorlist.getModel().getElementAt(i).toString() + ", ";
+            }
         }
         reference.setAuthor(asd);
         reference.setJournal(booktitle.getText());
@@ -543,7 +578,7 @@ public class GUI extends javax.swing.JFrame {
         references.addReference(reference);
 
 
-        JOptionPane.showMessageDialog(page1, "Article successfully created!", "Article created", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(page1, "Reference successfully created!", "Reference created", JOptionPane.PLAIN_MESSAGE);
 
         author.setText("");
         title.setText("");
@@ -558,6 +593,9 @@ public class GUI extends javax.swing.JFrame {
         publisher.setText("");
         address.setText("");
         keyword.setText("");
+        listData.clear();
+        authorlist.setListData(listData);
+        authorlist.setVisible(false);
     }//GEN-LAST:event_submitMouseClicked
 
     private void printMouseClicked(MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
@@ -696,7 +734,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_typeActionPerformed
 
     private void addmoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmoreActionPerformed
-        lastNames=new String[authorlist.getModel().getSize()+1];
+        lastNames = new String[authorlist.getModel().getSize() + 1];
         String stringValue = author.getText();
         author.setText("");
 
@@ -705,19 +743,44 @@ public class GUI extends javax.swing.JFrame {
             authorlist.setListData(listData);
         }
         authorlist.setVisible(true);
-        
+
         for (int i = 0; i < authorlist.getModel().getSize(); i++) {
             String[] names = authorlist.getModel().getElementAt(i).toString().split(" ");
-            lastNames[i]=names[0]; 
+            lastNames[i] = names[0];
         }
-        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer)year.getValue()));
+        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
 
     }//GEN-LAST:event_addmoreActionPerformed
 
     private void yearStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_yearStateChanged
-        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer)year.getValue()));
+        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
     }//GEN-LAST:event_yearStateChanged
 
+    private void openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openActionPerformed
+        String str = JOptionPane.showInputDialog(null, "Enter filename : ", "filename", 1);
+        if (references.openFile(str)) {
+            JOptionPane.showMessageDialog(page1, "Reference successfully loaded from file " + str + "!", "References loaded", JOptionPane.PLAIN_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(page1, "Couldn't load references from file " + str + "!", "References load failed", JOptionPane.PLAIN_MESSAGE);
+        }
+    }//GEN-LAST:event_openActionPerformed
+
+    private void saveasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveasActionPerformed
+        String str = JOptionPane.showInputDialog(null, "Enter filename : ", "filename", 1);
+        if (references.saveAs(str)) {
+            JOptionPane.showMessageDialog(page1, "Reference successfully saved to file " + str + "!", "References saved", JOptionPane.PLAIN_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(page1, "Coudln't save references to file " + str + "!", "Failed", JOptionPane.PLAIN_MESSAGE);
+        }
+    }//GEN-LAST:event_saveasActionPerformed
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        if (references.saveFile()) {
+            JOptionPane.showMessageDialog(page1, "Reference successfully saved !", "References saved", JOptionPane.PLAIN_MESSAGE);
+        } else {
+            saveasActionPerformed(evt);
+        }
+    }//GEN-LAST:event_saveActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addmore;
     private javax.swing.JTextField address;
@@ -748,6 +811,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel notetext;
     private javax.swing.JSpinner number;
     private javax.swing.JLabel numbertext;
+    private javax.swing.JMenuItem open;
     private javax.swing.JPanel page1;
     private javax.swing.JPanel page2;
     private javax.swing.JTextField pages1;
@@ -758,6 +822,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField publisher;
     private javax.swing.JLabel publishertext;
     private javax.swing.JList referencelist;
+    private javax.swing.JMenuItem save;
+    private javax.swing.JMenuItem saveas;
     private javax.swing.JButton submit;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JTextField title;

@@ -1,0 +1,12 @@
+@article{L12,
+author = {Luukkainen Matti},
+title = {Kuinka koodataan},
+journal = {},
+volume = {1},
+number = {2},
+year = {2012},
+pages = {1--22},
+booktitle = {},
+publisher = {adsads},
+address = {adsads},
+}
