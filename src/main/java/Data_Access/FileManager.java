@@ -21,6 +21,9 @@ public class FileManager {
     }
 
     public boolean openFile(String filename) {
+        if (filename == null) {
+            return false;
+        }
         file = new File(filename);
         if (!file.exists()) {
             return false;
@@ -31,6 +34,9 @@ public class FileManager {
     }
 
     public boolean createFile(String filename) {
+        if (filename == null) {
+            return false;
+        }
         try {
             if (file == null || !file.exists()) {
                 file = new File(filename);
@@ -44,6 +50,9 @@ public class FileManager {
     }
 
     public boolean saveAs(List<Reference> references, String filename) {
+        if (filename == null) {
+            return false;
+        }
         this.file = new File(filename);
         if (file.exists()) {
             return false;
