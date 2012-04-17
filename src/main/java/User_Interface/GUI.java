@@ -73,6 +73,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         listData = new Vector();
         authorlist = new JList( listData );
+        deleteauthor = new javax.swing.JButton();
         page2 = new javax.swing.JPanel();
         page2.setVisible(false);
         header3 = new javax.swing.JLabel();
@@ -276,6 +277,14 @@ public class GUI extends javax.swing.JFrame {
         authorlist.setName("authorlist");
         jScrollPane4.setViewportView(authorlist);
 
+        deleteauthor.setText("delete selected");
+        deleteauthor.setName("deleteauthor");
+        deleteauthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteauthorActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout page1Layout = new org.jdesktop.layout.GroupLayout(page1);
         page1.setLayout(page1Layout);
         page1Layout.setHorizontalGroup(
@@ -324,7 +333,10 @@ public class GUI extends javax.swing.JFrame {
                                 .add(title, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                                 .add(booktitle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                                 .add(note, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                                .add(addmore))
+                                .add(page1Layout.createSequentialGroup()
+                                    .add(addmore)
+                                    .add(18, 18, 18)
+                                    .add(deleteauthor)))
                             .add(author, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 215, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(page1Layout.createSequentialGroup()
@@ -350,7 +362,9 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(addmore, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(addmore, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(deleteauthor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(titletext)
@@ -781,6 +795,12 @@ public class GUI extends javax.swing.JFrame {
             saveasActionPerformed(evt);
         }
     }//GEN-LAST:event_saveActionPerformed
+
+    private void deleteauthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteauthorActionPerformed
+        listData.remove(authorlist.getSelectedIndex());
+        authorlist.setListData(listData);
+    }//GEN-LAST:event_deleteauthorActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addmore;
     private javax.swing.JTextField address;
@@ -792,6 +812,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel authortext;
     private javax.swing.JTextField booktitle;
     private javax.swing.JLabel booktitletext;
+    private javax.swing.JButton deleteauthor;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel header2;

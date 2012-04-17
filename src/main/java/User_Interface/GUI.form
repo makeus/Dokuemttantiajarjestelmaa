@@ -238,7 +238,11 @@
                                   <Component id="title" pref="438" max="32767" attributes="0"/>
                                   <Component id="booktitle" alignment="0" pref="438" max="32767" attributes="0"/>
                                   <Component id="note" alignment="0" pref="438" max="32767" attributes="0"/>
-                                  <Component id="addmore" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="addmore" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="deleteauthor" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Component id="author" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
                               <Component id="jScrollPane4" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
@@ -273,7 +277,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane4" min="-2" pref="85" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="addmore" min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="addmore" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="deleteauthor" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="titletext" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -616,6 +623,15 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="deleteauthor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="delete selected"/>
+            <Property name="name" type="java.lang.String" value="deleteauthor"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteauthorActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="page2">
