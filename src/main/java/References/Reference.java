@@ -1,5 +1,7 @@
 package References;
 
+import java.util.Formatter;
+
 public class Reference {
 
     private String type;
@@ -120,7 +122,7 @@ public class Reference {
     }
 
     public String getBibtex() {
-        return this.type + "{" + this.getKeyword() + ",\n"
+        return  this.type + "{" + this.getKeyword() + ",\n"
                 + "author = {" + this.getAuthor() + "},\n"
                 + "title = {" + this.getTitle() + "},\n"
                 + "journal = {" + this.getJournal() + "},\n"
@@ -135,7 +137,7 @@ public class Reference {
     }
 
     public String getInfo() {
-        return type.replace("@", "").toLowerCase() + "\n"
+        return " " + type.replace("@", "").toLowerCase() + "\n"
                 + " Keyword:\t\t" + this.getKeyword()
                 + "\n Title:\t\t" + this.getTitle()
                 + "\n Author:\t\t" + this.getAuthor()
