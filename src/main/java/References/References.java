@@ -5,17 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class References {
- 
+
     private FileManager fileManager;
-    private List<Reference> references;
+    private ReferenceHolder holder;
 
-    public References(FileManager fileManager) {
+    public References(FileManager fileManager, ReferenceHolder holder) {
         this.fileManager = fileManager;
-        references = new ArrayList<Reference>();
-    }
-
-    public void addReference(Reference reference){
-        references.add(reference);
+        this.holder = holder;
     }
 
     public boolean openFile(String filename) {
@@ -35,21 +31,10 @@ public class References {
     }
 
     public List<Reference> getReferences() {
-        if (fileManager.isOpen()) {
-            List<Reference> infile = fileManager.getReference();
-            for (Reference article : infile) {
-                boolean contains = false;
-                for (Reference inarticles : references) {
-                    if (inarticles.getKeyword().equals(article.getKeyword())) {
-                        contains = true;
-                    }
-                }
-                if (!contains) {
-                    references.add(article);
-                }
-            }
-        }
+        return holder.getReferences();
+    }
 
-        return references;
+    public void addReference(Reference reference) {
+        holder.addReference(reference);
     }
 }

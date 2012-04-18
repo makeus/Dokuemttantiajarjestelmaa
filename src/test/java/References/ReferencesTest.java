@@ -12,11 +12,16 @@ public class ReferencesTest {
 
     References references;
     FileManager filemanagermock;
+    ReferenceHolder holdermock;
 
+    public ReferencesTest(){
+    }
+    
     @Before
     public void setUp() {
         filemanagermock = mock(FileManager.class);
-        references = new References(filemanagermock);
+        holdermock = mock(ReferenceHolder.class);
+        references = new References(filemanagermock, holdermock);
     }
 
     @Test
@@ -24,43 +29,20 @@ public class ReferencesTest {
         Reference reference = new Reference();
         reference.setType("@article");
         reference.setKeyword("JKSS22s");
+
         references.addReference(reference);
-        
-        assertEquals(references.getReferences().get(0).getBibtex(), reference.getBibtex());
+        verify(holdermock).addReference(reference);
 
-    }
-
-    @Test
-    public void testAddMultipleArticles() {
-        List<Reference> expected = new ArrayList<Reference>();
-        Reference reference1 = new Reference();
-        reference1.setType("@article");
-        reference1.setKeyword("JKSS22s");
-
-        Reference reference2 = new Reference();
-        reference2.setType("@book");
-        reference2.setKeyword("DKSD");
-
-        expected.add(reference1);
-        references.addReference(reference1);
-        expected.add(reference2);
-        references.addReference(reference2);
-
-        assertEquals(references.getReferences().get(0).getBibtex(), expected.get(0).getBibtex());
-        assertEquals(references.getReferences().get(1).getBibtex(), expected.get(1).getBibtex());
-
-    }
-
-    @Test
-    public void testGetFileReferences() {
-        when(filemanagermock.isOpen()).thenReturn(true);
-        references.getReferences();
-        verify(filemanagermock).getReference();
     }
 
     @Test
     public void testGetReferences() {
-        when(filemanagermock.isOpen()).thenReturn(true);
+        references.getReferences();
+        verify(holdermock).getReferences();
+    }
+
+    @Test
+    public void testGetReferences2() {
         Reference reference = new Reference();
         reference.setType("@article");
         reference.setKeyword("JKSS22s");
@@ -68,52 +50,9 @@ public class ReferencesTest {
         List<Reference> list = new ArrayList<Reference>();
 
         list.add(reference);
-        when(filemanagermock.getReference()).thenReturn(list);
-
-        assertEquals(list, references.getReferences());
+        when(holdermock.getReferences()).thenReturn(list);
+        assertEquals(reference, references.getReferences().get(0));
     }
-
-    @Test
-    public void testGetArticles2() {
-        when(filemanagermock.isOpen()).thenReturn(true);
-        List<Reference> expected = new ArrayList<Reference>();
-        Reference reference1 = new Reference();
-        reference1.setType("@article");
-        reference1.setKeyword("JKSS22s");
-
-        Reference reference2 = new Reference();
-        reference2.setType("@book");
-        reference2.setKeyword("DKSD");
-
-        List<Reference> list = new ArrayList<Reference>();
-
-        list.add(reference1);
-        when(filemanagermock.getReference()).thenReturn(list);
-        references.addReference(reference2);
-        expected.add(reference2);
-        expected.add(reference1);
-
-        assertEquals(expected.get(0).getBibtex(), references.getReferences().get(0).getBibtex());
-        assertEquals(expected.get(1).getBibtex(), references.getReferences().get(1).getBibtex());
-    }
-
-    @Test
-    public void testDontaddSame() {
-        when(filemanagermock.isOpen()).thenReturn(true);
-        Reference reference = new Reference();
-        reference.setType("@article");
-        reference.setKeyword("JKSS22s");
-        
-        List<Reference> list = new ArrayList<Reference>();
-
-        list.add(reference);
-        
-        when(filemanagermock.getReference()).thenReturn(list);
-        references.addReference(reference);
-        
-        assertEquals(1, references.getReferences().size());
-    }
-
 
     @Test
     public void testopenFile() {

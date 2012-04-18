@@ -96,14 +96,13 @@ public class FileManagerTest {
         String filename = "test.test";
         List<Reference> references = new ArrayList<Reference>();
         Reference ref = new Reference() {
-            
+
             String bibTex = "@article{asd\ntitle = adventure of dasd,\n}\n";
 
             @Override
             public String getBibtex() {
                 return bibTex;
             }
-
         };
         references.add(ref);
 
@@ -123,13 +122,13 @@ public class FileManagerTest {
     }
 
     @Test
-    public void testGetReferencesEmpty() {
+    public void testGetContentsEmpty() {
         String filename = "test.test";
         List<Reference> references = new ArrayList<Reference>();
 
         assertTrue(fileManager.createFile(filename));
         assertTrue(fileManager.saveFile(references));
-        assertTrue(fileManager.getReference().isEmpty());
+        assertTrue(fileManager.getContents().length() == 0);
 
         File file = new File(filename);
         file.delete();
@@ -137,7 +136,7 @@ public class FileManagerTest {
     }
 
     @Test
-    public void testGetReferences() {
+    public void testGetContents() {
         String filename = "test.test";
         List<Reference> references = new ArrayList<Reference>();
         Reference reference = new Reference();
@@ -149,19 +148,20 @@ public class FileManagerTest {
         assertTrue(fileManager.createFile(filename));
         assertTrue(fileManager.saveFile(references));
 
-        assertEquals(reference.getBibtex(), fileManager.getReference().get(0).getBibtex());
+        System.out.println(fileManager.getContents());
+        System.out.println(reference.getBibtex());
+
+        assertEquals(reference.getBibtex(), fileManager.getContents());
 
         File file = new File(filename);
         file.delete();
 
     }
 
-
     @Test
-    public void testGetReferencesNone() {
-        assertTrue(fileManager.getReference().isEmpty());
+    public void testGetContentsNone() {
+        assertTrue(fileManager.getContents().length() == 0);
     }
-
 
     @Test
     public void testIsOpen() {
@@ -175,5 +175,24 @@ public class FileManagerTest {
     @Test
     public void testIsNotOpen() {
         assertFalse(fileManager.isOpen());
+    }
+
+    @Test
+    public void testOpenFileNULL() {
+        assertFalse(fileManager.openFile(null));
+    }
+    @Test
+    public void testCreateFileNULL() {
+        assertFalse(fileManager.createFile(null));
+    }
+
+    @Test
+    public void testSaveFileNULL() {
+        assertFalse(fileManager.saveFile(null));
+    }
+    
+    @Test
+    public void testSaveAsNULL() {
+        assertFalse(fileManager.saveAs(null, null));
     }
 }
