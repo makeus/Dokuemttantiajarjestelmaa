@@ -62,7 +62,7 @@ public class GUI extends javax.swing.JFrame {
         address = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
         header2 = new javax.swing.JLabel();
-        title = new javax.swing.JTextField();
+        referencetitle = new javax.swing.JTextField();
         typetext = new javax.swing.JLabel();
         type = new javax.swing.JComboBox();
         journal = new javax.swing.JTextField();
@@ -132,7 +132,7 @@ public class GUI extends javax.swing.JFrame {
         navLayout.setHorizontalGroup(
             navLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(newArticle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(print, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+            .add(print, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
         );
         navLayout.setVerticalGroup(
             navLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -141,7 +141,7 @@ public class GUI extends javax.swing.JFrame {
                 .add(newArticle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(print, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 34, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addContainerGap(727, Short.MAX_VALUE))
         );
 
         getContentPane().add(nav);
@@ -236,7 +236,7 @@ public class GUI extends javax.swing.JFrame {
         header2.setText("New Reference");
         header2.setName("header2");
 
-        title.setName("title");
+        referencetitle.setName("referencetitle");
 
         typetext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         typetext.setText("Type");
@@ -330,7 +330,7 @@ public class GUI extends javax.swing.JFrame {
                         .add(31, 31, 31)
                         .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                .add(title, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                                .add(referencetitle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                                 .add(booktitle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                                 .add(note, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                                 .add(page1Layout.createSequentialGroup()
@@ -344,7 +344,7 @@ public class GUI extends javax.swing.JFrame {
                         .add(31, 31, 31)
                         .add(type, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(header2))
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         page1Layout.setVerticalGroup(
             page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -368,7 +368,7 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(titletext)
-                    .add(title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(referencetitle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(booktitle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -411,7 +411,7 @@ public class GUI extends javax.swing.JFrame {
                     .add(keywordtext))
                 .add(14, 14, 14)
                 .add(submit)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         getContentPane().add(page1);
@@ -483,7 +483,7 @@ public class GUI extends javax.swing.JFrame {
                     .add(tabbedPane)
                     .add(jScrollPane1)
                     .add(page2Layout.createSequentialGroup()
-                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
+                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
                         .add(247, 247, 247)))
                 .add(37, 37, 37))
         );
@@ -493,7 +493,7 @@ public class GUI extends javax.swing.JFrame {
                 .add(34, 34, 34)
                 .add(header3)
                 .add(27, 27, 27)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
                 .add(18, 18, 18)
                 .add(tabbedPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 263, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(44, 44, 44))
@@ -570,17 +570,17 @@ public class GUI extends javax.swing.JFrame {
 
         Reference reference = new Reference();
         reference.setType(type.getSelectedItem().toString());
-        reference.setTitle(title.getText());
+        reference.setTitle(referencetitle.getText());
         reference.setBooktitle(booktitle.getText());
-        String asd = "";
+        String authors = "";
         for (int i = 0; i < authorlist.getModel().getSize(); i++) {
             if (i + 1 == authorlist.getModel().getSize()) {
-                asd = asd + authorlist.getModel().getElementAt(i).toString();
+                authors = authors + authorlist.getModel().getElementAt(i).toString();
             } else {
-                asd = asd + authorlist.getModel().getElementAt(i).toString() + ", ";
+                authors = authors + authorlist.getModel().getElementAt(i).toString() + ", ";
             }
         }
-        reference.setAuthor(asd);
+        reference.setAuthor(authors);
         reference.setJournal(booktitle.getText());
         reference.setVolume((Integer) volume.getValue());
         reference.setNumber((Integer) number.getValue());
@@ -596,7 +596,7 @@ public class GUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(page1, "Reference successfully created!", "Reference created", JOptionPane.PLAIN_MESSAGE);
 
         author.setText("");
-        title.setText("");
+        referencetitle.setText("");
         booktitle.setText("");
         note.setText("");
         journal.setText("");
@@ -636,7 +636,7 @@ public class GUI extends javax.swing.JFrame {
         if (type.getSelectedItem().toString() == "@book") {
             author.setVisible(true);
             authortext.setVisible(true);
-            title.setVisible(true);
+            referencetitle.setVisible(true);
             titletext.setVisible(true);
             booktitle.setVisible(false);
             booktitletext.setVisible(false);
@@ -664,7 +664,7 @@ public class GUI extends javax.swing.JFrame {
         } else if (type.getSelectedItem().toString() == "@article") {
             author.setVisible(true);
             authortext.setVisible(true);
-            title.setVisible(true);
+            referencetitle.setVisible(true);
             titletext.setVisible(true);
             booktitle.setVisible(false);
             booktitletext.setVisible(false);
@@ -692,7 +692,7 @@ public class GUI extends javax.swing.JFrame {
         } else if (type.getSelectedItem().toString() == "@inproceeding") {
             author.setVisible(true);
             authortext.setVisible(true);
-            title.setVisible(true);
+            referencetitle.setVisible(true);
             titletext.setVisible(true);
             booktitle.setVisible(true);
             booktitletext.setVisible(true);
@@ -720,7 +720,7 @@ public class GUI extends javax.swing.JFrame {
         } else if (type.getSelectedItem().toString() == "@misc") {
             author.setVisible(true);
             authortext.setVisible(true);
-            title.setVisible(false);
+            referencetitle.setVisible(false);
             titletext.setVisible(false);
             booktitle.setVisible(false);
             booktitletext.setVisible(false);
@@ -844,11 +844,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField publisher;
     private javax.swing.JLabel publishertext;
     private javax.swing.JList referencelist;
+    private javax.swing.JTextField referencetitle;
     private javax.swing.JMenuItem save;
     private javax.swing.JMenuItem saveas;
     private javax.swing.JButton submit;
     private javax.swing.JTabbedPane tabbedPane;
-    private javax.swing.JTextField title;
     private javax.swing.JLabel titletext;
     private javax.swing.JComboBox type;
     private javax.swing.JLabel typetext;

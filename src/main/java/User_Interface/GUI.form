@@ -109,7 +109,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="newArticle" max="32767" attributes="0"/>
-              <Component id="print" pref="156" max="32767" attributes="0"/>
+              <Component id="print" pref="154" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -119,7 +119,7 @@
                   <Component id="newArticle" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="print" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace pref="426" max="32767" attributes="0"/>
+                  <EmptySpace pref="727" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -235,7 +235,7 @@
                           <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="title" pref="438" max="32767" attributes="0"/>
+                                  <Component id="referencetitle" pref="438" max="32767" attributes="0"/>
                                   <Component id="booktitle" alignment="0" pref="438" max="32767" attributes="0"/>
                                   <Component id="note" alignment="0" pref="438" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
@@ -255,7 +255,7 @@
                       </Group>
                       <Component id="header2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="197" max="32767" attributes="0"/>
+                  <EmptySpace pref="187" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -284,7 +284,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="titletext" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="title" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="referencetitle" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -337,7 +337,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="submit" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <EmptySpace pref="207" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -526,9 +526,9 @@
             <Property name="name" type="java.lang.String" value="header2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="title">
+        <Component class="javax.swing.JTextField" name="referencetitle">
           <Properties>
-            <Property name="name" type="java.lang.String" value="title"/>
+            <Property name="name" type="java.lang.String" value="referencetitle"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="typetext">
@@ -661,7 +661,7 @@
                       <Component id="tabbedPane" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="header3" pref="602" max="32767" attributes="0"/>
+                          <Component id="header3" pref="581" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -675,7 +675,7 @@
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="header3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="337" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="420" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="tabbedPane" min="-2" pref="263" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
