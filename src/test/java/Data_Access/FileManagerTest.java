@@ -149,9 +149,6 @@ public class FileManagerTest {
         assertTrue(fileManager.createFile(filename));
         assertTrue(fileManager.saveFile(references));
 
-        System.out.println(fileManager.getContents());
-        System.out.println(reference.getBibtex());
-
         assertEquals(reference.getBibtex(), fileManager.getContents());
 
         File file = new File(filename);
