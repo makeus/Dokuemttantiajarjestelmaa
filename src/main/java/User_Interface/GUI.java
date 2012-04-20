@@ -20,7 +20,6 @@ public class GUI extends javax.swing.JFrame {
 
     public GUI(References references, KeywordGen keywordgen) {
         this.references = references;
-        references.openFile("sigproc.bib");
         this.keywordgen = keywordgen;
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
