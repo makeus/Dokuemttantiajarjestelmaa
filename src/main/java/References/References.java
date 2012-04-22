@@ -8,10 +8,12 @@ public class References {
 
     private FileManager fileManager;
     private ReferenceHolder holder;
+    private Authors authors;
 
-    public References(FileManager fileManager, ReferenceHolder holder) {
+    public References(FileManager fileManager, ReferenceHolder holder, Authors authors) {
         this.fileManager = fileManager;
         this.holder = holder;
+        this.authors = authors;
     }
 
     public boolean openFile(String filename) {
@@ -32,6 +34,14 @@ public class References {
 
     public List<Reference> getReferences() {
         return holder.getReferences();
+    }
+    
+    public List<Reference> getReferences(String author){
+        return authors.getReferences(author, holder.getReferences());
+    }
+    
+    public String[] getAuthors(){
+        return authors.getAuthors(holder.getReferences());
     }
 
     public void addReference(Reference reference) {

@@ -16,14 +16,14 @@
     <bean id="reader" class="Data_Access.ReferenceReader">
         <constructor-arg ref="files" />
     </bean>
-    
     <bean id="holder" class="References.ReferenceHolder" >
         <constructor-arg ref="reader" />
     </bean>
-    
+    <bean id="authors" class="References.Authors" />
     <bean id="references" class="References.References" >
         <constructor-arg ref="files" />
         <constructor-arg ref="holder" />
+        <constructor-arg ref="authors" />
     </bean>
     <bean id="keywordgen" class="User_Interface.KeywordGen" >
         <constructor-arg ref="references" />

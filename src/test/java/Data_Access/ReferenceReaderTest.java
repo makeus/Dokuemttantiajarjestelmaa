@@ -48,8 +48,8 @@ public class ReferenceReaderTest {
         String reference = "@BOOK (V78,\nAUTHOR = \"L. S. Vygotsky\",\nTITLE= \"Mind in Society: The Development of Higher Psychological Processes\",\nPUBLISHER = \"Harvard University Press\",\nYEAR = 1978,\nADDRESS = \"Cambridge, MA\",\n)";
 
         when(fileManager.getContents()).thenReturn(reference);
-        assertEquals(reader.getReference().get(0).getKeyword(), "V78");
-        assertEquals(reader.getReference().get(0).getYear(), 1978);
+        assertEquals("V78", reader.getReference().get(0).getKeyword());
+        assertEquals(1978, reader.getReference().get(0).getYear());
 
     }    
 }

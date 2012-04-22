@@ -13,6 +13,7 @@ public class ReferencesTest {
     References references;
     FileManager filemanagermock;
     ReferenceHolder holdermock;
+    Authors authorsmock;
 
     public ReferencesTest(){
     }
@@ -21,7 +22,8 @@ public class ReferencesTest {
     public void setUp() {
         filemanagermock = mock(FileManager.class);
         holdermock = mock(ReferenceHolder.class);
-        references = new References(filemanagermock, holdermock);
+        authorsmock = mock(Authors.class);
+        references = new References(filemanagermock, holdermock, authorsmock);
     }
 
     @Test
@@ -79,5 +81,18 @@ public class ReferencesTest {
         String filename = "asd.bib";
         references.saveAs(filename);
         verify(filemanagermock).saveAs(anyList(), eq(filename));
+    }
+    
+    @Test
+    public void testGetAuthors(){
+        references.getAuthors();
+        verify(authorsmock).getAuthors(anyList());
+    }
+    
+    @Test
+    public void testGetAuthorReferences(){
+        String author = "Luukkainen";
+        references.getReferences(author);
+        verify(authorsmock).getReferences(eq(author), anyList());
     }
 }
