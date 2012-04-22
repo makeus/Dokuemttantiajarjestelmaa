@@ -1,7 +1,6 @@
 package References;
 
 import java.util.Formatter;
-
 public class Reference {
 
     private String type;
@@ -146,7 +145,7 @@ public class Reference {
                 + "\n Year:\t\t" + this.getYear()
                 + "\n Booktitle:\t\t" + this.getBooktitle()
                 + "\n Journal:\t\t" + this.getJournal()
-                + "\n Publisher:\t" + this.getPublisher()
+                + "\n Publisher:\t\t" + this.getPublisher()
                 + "\n Address:\t\t" + this.getAddress();
     }
 }
