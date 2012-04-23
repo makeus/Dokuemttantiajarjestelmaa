@@ -1,6 +1,7 @@
 package References;
 
-import java.util.Formatter;
+import java.util.ArrayList;
+
 public class Reference {
 
     private String type;
@@ -15,9 +16,18 @@ public class Reference {
     private String publisher = "";
     private String address = "";
     private String booktitle = "";
+    private String note = "";
+    ArrayList<String[]> keys;
 
-    
     public Reference() {
+        keys = new ArrayList<String[]>();
+    }
+
+    private void addtoArray(String key, String value) {
+        String[] arr = new String[2];
+        arr[0] = key;
+        arr[1] = value;
+        keys.add(arr);
     }
 
     public String getType() {
@@ -68,6 +78,10 @@ public class Reference {
         return booktitle;
     }
 
+    public String getNote() {
+        return note;
+    }
+
     public void setType(String type) {
         this.type = type;
     }
@@ -75,78 +89,90 @@ public class Reference {
     public void setKeyword(String keyword) {
         this.keyword = keyword;
     }
-    
-    public void setTitle(String title){
+
+    public void setTitle(String title) {
         this.title = title;
+        addtoArray("Title", title);
     }
-    
-    public void setAuthor(String author){
+
+    public void setAuthor(String author) {
         this.author = author;
+        addtoArray("Author", author);
     }
-    
-    public void setJournal(String journal){
+
+    public void setJournal(String journal) {
         this.journal = journal;
+        addtoArray("Journal", journal);
     }
-    
-    public void setVolume(int volume){
+
+    public void setVolume(int volume) {
         this.volume = volume;
+        addtoArray("Volume", Integer.toString(volume));
     }
-    
-    public void setNumber(int number){
+
+    public void setNumber(int number) {
         this.number = number;
+        addtoArray("Number", Integer.toString(number));
     }
-    
-    public void setYear(int year){
+
+    public void setYear(int year) {
         this.year = year;
+        addtoArray("Year", Integer.toString(year));
     }
-    
-    public void setPages(String pages){
+
+    public void setPages(String pages) {
         this.pages = pages;
+        addtoArray("Pages", pages);
     }
-    
-    public void setPublisher(String publisher){
+
+    public void setPublisher(String publisher) {
         this.publisher = publisher;
+        addtoArray("Publisher", publisher);
     }
-    
-    public void setAddress(String address){
+
+    public void setAddress(String address) {
         this.address = address;
+        addtoArray("Address", address);
     }
-    
-    public void setBooktitle(String booktitle){
+
+    public void setBooktitle(String booktitle) {
         this.booktitle = booktitle;
+        addtoArray("Booktitle", booktitle);
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+        addtoArray("Note", note);
     }
 
     @Override
     public String toString() {
-        return title;
+        if (!title.equals("")) {
+            return title;
+        }
+        return note;
     }
 
     public String getBibtex() {
-        return  this.type + "{" + this.getKeyword() + ",\n"
-                + "  author = {" + this.getAuthor() + "},\n"
-                + "  title = {" + this.getTitle() + "},\n"
-                + "  journal = {" + this.getJournal() + "},\n"
-                + "  volume = {" + this.getVolume() + "},\n"
-                + "  number = {" + this.getNumber() + "},\n"
-                + "  year = {" + this.getYear() + "},\n"
-                + "  pages = {" + this.getPages() + "},\n"
-                + "  booktitle = {" + this.getBooktitle() + "},\n"
-                + "  publisher = {" + this.getPublisher() + "},\n"
-                + "  address = {" + this.getAddress() + "},\n"
-                + "}\n";
+        String bibTex = this.type + "{" + this.keyword + ",\n";
+        for (String[] key : keys) {
+            if (!key[1].equals("") && !key[1].equals("0")) {
+                bibTex += "  " + key[0] + " = {" + key[1] + "},\n";
+            }
+        }
+        bibTex += "}\n";
+
+        return bibTex;
     }
 
     public String getInfo() {
-        return " " + type.replace("@", "").toLowerCase() + "\n"
-                + " Keyword:\t\t" + this.getKeyword()
-                + "\n Title:\t\t" + this.getTitle()
-                + "\n Author:\t\t" + this.getAuthor()
-                + "\n Number:\t\t" + this.getNumber()
-                + "\n Volume:\t\t" + this.getVolume()
-                + "\n Year:\t\t" + this.getYear()
-                + "\n Booktitle:\t\t" + this.getBooktitle()
-                + "\n Journal:\t\t" + this.getJournal()
-                + "\n Publisher:\t\t" + this.getPublisher()
-                + "\n Address:\t\t" + this.getAddress();
+        String info = " " + type.substring(1,2).toUpperCase() + type.substring(2).toLowerCase() + "\n--------------\n";
+        info += " Keyword:\t\t" + keyword + "\n";
+        for(String[] key : keys){
+            if (!key[1].equals("") && !key[1].equals("0")) {
+                info += key[0] + ":\t\t" + key[1] + "\n"; 
+            }
+        }
+        return info;
     }
 }

@@ -725,9 +725,8 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="     Info      " toolTip="">
+                  <JTabbedPaneConstraints tabName="     Info      ">
                     <Property name="tabTitle" type="java.lang.String" value="     Info      "/>
-                    <Property name="tabToolTip" type="java.lang.String" value=""/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -738,6 +737,9 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                      <Insets value="[6, 6, 6, 6]"/>
+                    </Property>
                     <Property name="name" type="java.lang.String" value="referenceinfo"/>
                   </Properties>
                 </Component>
@@ -748,7 +750,9 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
                 </Property>
+                <Property name="autoscrolls" type="boolean" value="true"/>
                 <Property name="name" type="java.lang.String" value="jScrollPane3"/>
+                <Property name="requestFocusEnabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -771,6 +775,9 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                      <Insets value="[6, 6, 6, 6]"/>
+                    </Property>
                     <Property name="name" type="java.lang.String" value="referencecode"/>
                   </Properties>
                 </Component>
@@ -781,7 +788,9 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
                 </Property>
+                <Property name="autoscrolls" type="boolean" value="true"/>
                 <Property name="name" type="java.lang.String" value="jScrollPane5"/>
+                <Property name="requestFocusEnabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -804,6 +813,9 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                      <Insets value="[6, 6, 6, 6]"/>
+                    </Property>
                     <Property name="name" type="java.lang.String" value="codeall"/>
                   </Properties>
                   <AuxValues>

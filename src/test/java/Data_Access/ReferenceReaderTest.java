@@ -38,7 +38,7 @@ public class ReferenceReaderTest {
         reference.setKeyword("WDS21a");
 
         when(fileManager.getContents()).thenReturn(reference.getBibtex());
-
+        
         assertEquals(reference.getBibtex(), reader.getReference().get(0).getBibtex());
 
     }

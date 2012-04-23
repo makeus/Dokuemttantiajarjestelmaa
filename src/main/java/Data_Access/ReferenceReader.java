@@ -30,10 +30,11 @@ public class ReferenceReader {
         reference.setPublisher(keys[7][1]);
         reference.setAddress(keys[8][1]);
         reference.setBooktitle(keys[9][1]);
+        reference.setNote(keys[10][1]);
     }
 
     private void setArray() {
-        int keycount = 10;
+        int keycount = 11;
         this.keys = new String[keycount][2];
         keys[0][0] = "title";
         keys[1][0] = "author";
@@ -45,6 +46,7 @@ public class ReferenceReader {
         keys[7][0] = "publisher";
         keys[8][0] = "address";
         keys[9][0] = "booktitle";
+        keys[10][0] = "note";
     }
 
     private int getAsInt(String string) throws NumberFormatException {

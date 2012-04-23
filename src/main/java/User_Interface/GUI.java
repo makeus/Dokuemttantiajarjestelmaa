@@ -25,6 +25,7 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception ex) {
         }
         initComponents();
+        
         typeActionPerformed(null);
     }
 
@@ -354,7 +355,7 @@ public class GUI extends javax.swing.JFrame {
                         .add(31, 31, 31)
                         .add(type, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(header2))
-                .addContainerGap(329, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         page1Layout.setVerticalGroup(
             page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -442,30 +443,37 @@ public class GUI extends javax.swing.JFrame {
 
         referenceinfo.setColumns(20);
         referenceinfo.setRows(5);
+        referenceinfo.setMargin(new java.awt.Insets(6, 6, 6, 6));
         referenceinfo.setName("referenceinfo");
         jScrollPane6.setViewportView(referenceinfo);
 
-        tabbedPane.addTab("     Info      ", null, jScrollPane6, "");
+        tabbedPane.addTab("     Info      ", jScrollPane6);
 
         jScrollPane3.setBackground(new java.awt.Color(254, 254, 254));
+        jScrollPane3.setAutoscrolls(true);
         jScrollPane3.setName("jScrollPane3");
+        jScrollPane3.setRequestFocusEnabled(false);
 
         referencecode.setBackground(new java.awt.Color(254, 254, 254));
         referencecode.setColumns(20);
         referencecode.setEditable(false);
         referencecode.setRows(5);
+        referencecode.setMargin(new java.awt.Insets(6, 6, 6, 6));
         referencecode.setName("referencecode");
         jScrollPane3.setViewportView(referencecode);
 
         tabbedPane.addTab("    Code selected    ", jScrollPane3);
 
         jScrollPane5.setBackground(new java.awt.Color(254, 254, 254));
+        jScrollPane5.setAutoscrolls(true);
         jScrollPane5.setName("jScrollPane5");
+        jScrollPane5.setRequestFocusEnabled(false);
 
         codeall.setBackground(new java.awt.Color(254, 254, 254));
         codeall.setColumns(20);
         codeall.setEditable(false);
         codeall.setRows(5);
+        codeall.setMargin(new java.awt.Insets(6, 6, 6, 6));
         codeall.setName("codeall");
         jScrollPane5.setViewportView(codeall);
 
@@ -508,7 +516,7 @@ public class GUI extends javax.swing.JFrame {
                 .add(page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, tabbedPane)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, page2Layout.createSequentialGroup()
-                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
                         .add(247, 247, 247))
                     .add(page2Layout.createSequentialGroup()
                         .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 230, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -819,8 +827,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_yearStateChanged
 
     private void openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openActionPerformed
-        JFileChooser chooser = new JFileChooser();
-
+        JFileChooser chooser = new JFileChooser(System.getProperty("user.dir"));
+        
         int choice = chooser.showOpenDialog(null);
 
         if (choice == JFileChooser.APPROVE_OPTION) {
@@ -836,7 +844,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_openActionPerformed
 
     private void saveasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveasActionPerformed
-        JFileChooser chooser = new JFileChooser();
+        JFileChooser chooser = new JFileChooser(System.getProperty("user.dir"));
 
         int choice = chooser.showSaveDialog(null);
         
