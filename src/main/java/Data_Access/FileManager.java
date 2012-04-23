@@ -20,13 +20,14 @@ public class FileManager implements UserDAO {
         if (filename == null) {
             return false;
         }
+
         file = new File(filename);
+
         if (!file.exists()) {
             return false;
         }
         fileopen = true;
         return true;
-
     }
 
     public boolean createFile(String filename) {
@@ -56,6 +57,7 @@ public class FileManager implements UserDAO {
         this.createFile(filename);
         return this.saveFile(references);
     }
+
 
     public boolean saveFile(List<Reference> references) {
         FileWriter writer;
@@ -89,7 +91,7 @@ public class FileManager implements UserDAO {
             } catch (FileNotFoundException fileNotFoundException) {
                 return ret;
             }
-            while(lukija.hasNextLine()){
+            while (lukija.hasNextLine()) {
                 ret = ret + lukija.nextLine() + "\n";
             }
         }

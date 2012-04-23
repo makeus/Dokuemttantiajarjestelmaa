@@ -108,8 +108,13 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="newreference" max="32767" attributes="0"/>
-              <Component id="print" pref="154" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="print" pref="154" max="32767" attributes="0"/>
+                      <Component id="newreference" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -252,7 +257,7 @@
                       </Group>
                       <Component id="header2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="187" max="32767" attributes="0"/>
+                  <EmptySpace pref="263" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -657,10 +662,14 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="tabbedPane" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="header3" pref="578" max="32767" attributes="0"/>
+                          <Component id="header3" pref="493" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jScrollPane2" min="-2" pref="230" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
@@ -671,10 +680,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="header3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="185" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="312" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="tabbedPane" min="-2" pref="284" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jScrollPane1" pref="334" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="tabbedPane" pref="379" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -817,23 +829,11 @@
           <SubComponents>
             <Component class="javax.swing.JList" name="referencelist">
               <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
-                </Property>
-                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                    <StringItem index="4" value="Item 5"/>
-                  </StringArray>
                 </Property>
                 <Property name="selectionMode" type="int" value="1"/>
                 <Property name="name" type="java.lang.String" value="referencelist"/>
@@ -841,9 +841,36 @@
               <Events>
                 <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="articleChanged"/>
               </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="referencelist.setListData(references.getReferences().toArray());"/>
-              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jScrollPane2"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="authorfilterlist">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SansSerif" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
+                </Property>
+                <Property name="selectionMode" type="int" value="1"/>
+                <Property name="name" type="java.lang.String" value="authorfilterlist"/>
+              </Properties>
+              <Events>
+                <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="authorfilterChanged"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

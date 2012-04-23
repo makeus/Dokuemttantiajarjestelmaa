@@ -16,6 +16,7 @@ public class Reference {
     private String address = "";
     private String booktitle = "";
 
+    
     public Reference() {
     }
 
@@ -117,21 +118,21 @@ public class Reference {
 
     @Override
     public String toString() {
-        return type.replace("@", "").toLowerCase() + ": " + keyword + ", " + author + ": " + title;
+        return title;
     }
 
     public String getBibtex() {
         return  this.type + "{" + this.getKeyword() + ",\n"
-                + "author = {" + this.getAuthor() + "},\n"
-                + "title = {" + this.getTitle() + "},\n"
-                + "journal = {" + this.getJournal() + "},\n"
-                + "volume = {" + this.getVolume() + "},\n"
-                + "number = {" + this.getNumber() + "},\n"
-                + "year = {" + this.getYear() + "},\n"
-                + "pages = {" + this.getPages() + "},\n"
-                + "booktitle = {" + this.getBooktitle() + "},\n"
-                + "publisher = {" + this.getPublisher() + "},\n"
-                + "address = {" + this.getAddress() + "},\n"
+                + "  author = {" + this.getAuthor() + "},\n"
+                + "  title = {" + this.getTitle() + "},\n"
+                + "  journal = {" + this.getJournal() + "},\n"
+                + "  volume = {" + this.getVolume() + "},\n"
+                + "  number = {" + this.getNumber() + "},\n"
+                + "  year = {" + this.getYear() + "},\n"
+                + "  pages = {" + this.getPages() + "},\n"
+                + "  booktitle = {" + this.getBooktitle() + "},\n"
+                + "  publisher = {" + this.getPublisher() + "},\n"
+                + "  address = {" + this.getAddress() + "},\n"
                 + "}\n";
     }
 

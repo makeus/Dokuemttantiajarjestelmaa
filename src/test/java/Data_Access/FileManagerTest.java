@@ -177,7 +177,7 @@ public class FileManagerTest {
 
     @Test
     public void testOpenFileNULL() {
-        assertFalse(fileManager.openFile(null));
+        assertFalse(fileManager.openFile((String) null));
     }
     @Test
     public void testCreateFileNULL() {
@@ -191,6 +191,6 @@ public class FileManagerTest {
     
     @Test
     public void testSaveAsNULL() {
-        assertFalse(fileManager.saveAs(null, null));
+        assertFalse(fileManager.saveAs(null, (String) null));
     }
 }

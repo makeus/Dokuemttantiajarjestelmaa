@@ -44,6 +44,6 @@ public class AuthorsTest {
     @Test
     public void testGetAuthors() {
         String[] autho = {"Luukkainen, Matti", "Vihavainen, Arto", "Pekka Pätkä"};
-        assertArrayEquals(autho, authors.getAuthors(references));
+        assertArrayEquals(autho, authors.getAuthors(references).toArray());
     }
 }

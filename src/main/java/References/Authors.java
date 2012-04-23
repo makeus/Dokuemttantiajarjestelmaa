@@ -19,7 +19,7 @@ public class Authors {
         return ret;
     }
 
-    public String[] getAuthors(List<Reference> references) {
+    public List<String> getAuthors(List<Reference> references) {
         ArrayList<String> authors = new ArrayList<String>();
         for (Reference reference : references) {
             for (String author : pickAuthors(reference.getAuthor())) {
@@ -28,12 +28,11 @@ public class Authors {
                 }
             }
         }
-        String[] ret = new String[authors.size()];
-        return authors.toArray(ret);
+        return authors;
     }
 
     private String[] pickAuthors(String authors) {
-        String[] authorsplit = authors.split("and");
+        String[] authorsplit = authors.split(" and ");
         for (int i = 0; i < authorsplit.length - 1; i++) {
             authorsplit[i] = authorsplit[i].trim();
         }

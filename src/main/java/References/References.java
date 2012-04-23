@@ -1,6 +1,7 @@
 package References;
 
 import Data_Access.FileManager;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +36,12 @@ public class References {
     public List<Reference> getReferences() {
         return holder.getReferences();
     }
-    
-    public List<Reference> getReferences(String author){
+
+    public List<Reference> getReferences(String author) {
         return authors.getReferences(author, holder.getReferences());
     }
-    
-    public String[] getAuthors(){
+
+    public List<String> getAuthors() {
         return authors.getAuthors(holder.getReferences());
     }
 

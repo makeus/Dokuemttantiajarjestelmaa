@@ -4,11 +4,10 @@ import References.Reference;
 import References.References;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.util.List;
 import java.util.Vector;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -91,6 +90,8 @@ public class GUI extends javax.swing.JFrame {
         codeall.setText(code);
         jScrollPane1 = new javax.swing.JScrollPane();
         referencelist = new javax.swing.JList();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        authorfilterlist = new javax.swing.JList();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         exitMenuItem = new javax.swing.JMenuItem();
@@ -137,8 +138,11 @@ public class GUI extends javax.swing.JFrame {
         nav.setLayout(navLayout);
         navLayout.setHorizontalGroup(
             navLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(newreference, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(print, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+            .add(navLayout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(navLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(print, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                    .add(newreference, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         navLayout.setVerticalGroup(
             navLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -350,7 +354,7 @@ public class GUI extends javax.swing.JFrame {
                         .add(31, 31, 31)
                         .add(type, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(header2))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         page1Layout.setVerticalGroup(
             page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -470,23 +474,30 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane1.setBorder(null);
         jScrollPane1.setName("jScrollPane1");
 
-        referencelist.setBorder(null);
         referencelist.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         referencelist.setForeground(java.awt.Color.black);
-        referencelist.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         referencelist.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         referencelist.setName("referencelist");
-        referencelist.setListData(references.getReferences().toArray());
         referencelist.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 articleChanged(evt);
             }
         });
         jScrollPane1.setViewportView(referencelist);
+
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setName("jScrollPane2");
+
+        authorfilterlist.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        authorfilterlist.setForeground(java.awt.Color.black);
+        authorfilterlist.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        authorfilterlist.setName("authorfilterlist");
+        authorfilterlist.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                authorfilterChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(authorfilterlist);
 
         org.jdesktop.layout.GroupLayout page2Layout = new org.jdesktop.layout.GroupLayout(page2);
         page2.setLayout(page2Layout);
@@ -497,9 +508,12 @@ public class GUI extends javax.swing.JFrame {
                 .add(page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, tabbedPane)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, page2Layout.createSequentialGroup()
-                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
                         .add(247, 247, 247))
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane1))
+                    .add(page2Layout.createSequentialGroup()
+                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 230, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jScrollPane1)))
                 .add(37, 37, 37))
         );
         page2Layout.setVerticalGroup(
@@ -507,10 +521,12 @@ public class GUI extends javax.swing.JFrame {
             .add(page2Layout.createSequentialGroup()
                 .add(34, 34, 34)
                 .add(header3)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 185, Short.MAX_VALUE)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 312, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
-                .add(tabbedPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 284, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                    .add(jScrollPane2))
+                .add(18, 18, 18)
+                .add(tabbedPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
                 .add(23, 23, 23))
         );
 
@@ -628,20 +644,43 @@ public class GUI extends javax.swing.JFrame {
         authorlist.setVisible(false);
     }//GEN-LAST:event_submitMouseClicked
 
+    private void updatecodeall(List<Reference> refs) {
+        String code = "";
+        for (Reference reference : refs) {
+            code = code + reference.getBibtex();
+        }
+        codeall.setText(code);
+    }
+
+    private void resetPrintLists() {
+
+        referencelist.setListData(references.getReferences().toArray());
+        List<String> authors = references.getAuthors();
+        authors.add(0, "All..");
+        authorfilterlist.setListData(authors.toArray());
+        updatecodeall(references.getReferences());
+    }
+
+    private void updatePrintLists() {
+        String author = (String) authorfilterlist.getSelectedValue();
+        if ((author != null) && !(author.equals("All.."))) {
+            referencelist.setListData(references.getReferences(author).toArray());
+            updatecodeall(references.getReferences(author));
+        } else {
+            referencelist.setListData(references.getReferences().toArray());
+            updatecodeall(references.getReferences());
+        }
+    }
+
     private void printMouseClicked(MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
         currentpage.setVisible(false);
         page2.setVisible(true);
         currentpage = page2;
-        referencelist.setListData(references.getReferences().toArray());
-        String code = "";
-        for (Reference reference : references.getReferences()) {
-            code = code + reference.getBibtex();
-        }
-        codeall.setText(code);
+        resetPrintLists();
     }//GEN-LAST:event_printMouseClicked
 
     private void typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeActionPerformed
-        if (type.getSelectedItem().toString() == "@book") {
+        if ("@book".equals(type.getSelectedItem().toString())) {
             author.setVisible(true);
             authortext.setVisible(true);
             referencetitle.setVisible(true);
@@ -669,7 +708,7 @@ public class GUI extends javax.swing.JFrame {
             keyword.setVisible(true);
             keywordtext.setVisible(true);
             authorlist.setVisible(false);
-        } else if (type.getSelectedItem().toString() == "@article") {
+        } else if ("@article".equals(type.getSelectedItem().toString())) {
             author.setVisible(true);
             authortext.setVisible(true);
             referencetitle.setVisible(true);
@@ -697,7 +736,7 @@ public class GUI extends javax.swing.JFrame {
             keyword.setVisible(true);
             keywordtext.setVisible(true);
             authorlist.setVisible(false);
-        } else if (type.getSelectedItem().toString() == "@inproceeding") {
+        } else if ("@inproceeding".equals(type.getSelectedItem().toString())) {
             author.setVisible(true);
             authortext.setVisible(true);
             referencetitle.setVisible(true);
@@ -725,7 +764,7 @@ public class GUI extends javax.swing.JFrame {
             keyword.setVisible(true);
             keywordtext.setVisible(true);
             authorlist.setVisible(false);
-        } else if (type.getSelectedItem().toString() == "@misc") {
+        } else if ("@misc".equals(type.getSelectedItem().toString())) {
             author.setVisible(true);
             authortext.setVisible(true);
             referencetitle.setVisible(false);
@@ -780,20 +819,34 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_yearStateChanged
 
     private void openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openActionPerformed
-        String str = JOptionPane.showInputDialog(null, "Enter filename : ", "filename", 1);
-        if (references.openFile(str)) {
-            JOptionPane.showMessageDialog(page1, "Reference successfully loaded from file " + str + "!", "References loaded", JOptionPane.PLAIN_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(page1, "Couldn't load references from file " + str + "!", "References load failed", JOptionPane.PLAIN_MESSAGE);
+        JFileChooser chooser = new JFileChooser();
+
+        int choice = chooser.showOpenDialog(null);
+
+        if (choice == JFileChooser.APPROVE_OPTION) {
+            
+            File file = chooser.getSelectedFile();
+            if (references.openFile(file.toString())) {
+                JOptionPane.showMessageDialog(page1, "Reference successfully loaded from file " + file.getName() + "!", "References loaded", JOptionPane.PLAIN_MESSAGE);
+                resetPrintLists();
+            } else {
+                JOptionPane.showMessageDialog(page1, "Couldn't load references from file " + file.getName() + "!", "References load failed", JOptionPane.PLAIN_MESSAGE);
+            }
         }
     }//GEN-LAST:event_openActionPerformed
 
     private void saveasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveasActionPerformed
-        String str = JOptionPane.showInputDialog(null, "Enter filename : ", "filename", 1);
-        if (references.saveAs(str)) {
-            JOptionPane.showMessageDialog(page1, "Reference successfully saved to file " + str + "!", "References saved", JOptionPane.PLAIN_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(page1, "Coudln't save references to file " + str + "!", "Failed", JOptionPane.PLAIN_MESSAGE);
+        JFileChooser chooser = new JFileChooser();
+
+        int choice = chooser.showSaveDialog(null);
+        
+        if (choice == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            if (references.saveAs(file.toString())) {
+                JOptionPane.showMessageDialog(page1, "Reference successfully saved to file " + file.getName() + "!", "References saved", JOptionPane.PLAIN_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(page1, "Coudln't save references to file " + file.getName() + "!", "Failed", JOptionPane.PLAIN_MESSAGE);
+            }
         }
     }//GEN-LAST:event_saveasActionPerformed
 
@@ -822,11 +875,15 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_articleChanged
 
+    private void authorfilterChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_authorfilterChanged
+        updatePrintLists();
+    }//GEN-LAST:event_authorfilterChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addmore;
     private javax.swing.JTextField address;
     private javax.swing.JLabel addresstext;
     private javax.swing.JTextField author;
+    private javax.swing.JList authorfilterlist;
     private javax.swing.JList authorlist;
     private javax.swing.JLabel authortext;
     private javax.swing.JTextField booktitle;
@@ -838,6 +895,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel header2;
     private javax.swing.JLabel header3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
