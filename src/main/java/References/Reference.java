@@ -157,7 +157,7 @@ public class Reference {
     public String getBibtex() {
         String bibTex = this.type + "{" + this.keyword + ",\n";
         for (String[] key : keys) {
-            if (!key[1].equals("") && !key[1].equals("0")) {
+            if (!key[1].equals("") && !key[1].equals("0") && !key[1].equals("--")) {
                 bibTex += "  " + key[0] + " = {" + key[1] + "},\n";
             }
         }

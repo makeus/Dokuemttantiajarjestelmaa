@@ -609,6 +609,7 @@ public class GUI extends javax.swing.JFrame {
         reference.setPublisher(publisher.getText());
         reference.setAddress(address.getText());
         reference.setKeyword(keyword.getText());
+        reference.setNote(note.getText());
 
         references.addReference(reference);
 
