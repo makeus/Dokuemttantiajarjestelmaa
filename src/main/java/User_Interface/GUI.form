@@ -17,16 +17,6 @@
             <Property name="name" type="java.lang.String" value="fileMenu"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="exitMenuItem">
-              <Properties>
-                <Property name="mnemonic" type="int" value="120"/>
-                <Property name="text" type="java.lang.String" value="Exit"/>
-                <Property name="name" type="java.lang.String" value="exitMenuItem"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitMenuItemActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="open">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Open file"/>
@@ -257,7 +247,7 @@
                       </Group>
                       <Component id="header2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="263" max="32767" attributes="0"/>
+                  <EmptySpace pref="204" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -662,7 +652,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="tabbedPane" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="header3" pref="493" max="32767" attributes="0"/>
+                          <Component id="header3" pref="452" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -750,9 +740,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
                 </Property>
-                <Property name="autoscrolls" type="boolean" value="true"/>
                 <Property name="name" type="java.lang.String" value="jScrollPane3"/>
-                <Property name="requestFocusEnabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -788,9 +776,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
                 </Property>
-                <Property name="autoscrolls" type="boolean" value="true"/>
                 <Property name="name" type="java.lang.String" value="jScrollPane5"/>
-                <Property name="requestFocusEnabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>

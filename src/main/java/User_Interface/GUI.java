@@ -95,7 +95,6 @@ public class GUI extends javax.swing.JFrame {
         authorfilterlist = new javax.swing.JList();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        exitMenuItem = new javax.swing.JMenuItem();
         open = new javax.swing.JMenuItem();
         saveas = new javax.swing.JMenuItem();
         save = new javax.swing.JMenuItem();
@@ -355,7 +354,7 @@ public class GUI extends javax.swing.JFrame {
                         .add(31, 31, 31)
                         .add(type, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(header2))
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         page1Layout.setVerticalGroup(
             page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -450,9 +449,7 @@ public class GUI extends javax.swing.JFrame {
         tabbedPane.addTab("     Info      ", jScrollPane6);
 
         jScrollPane3.setBackground(new java.awt.Color(254, 254, 254));
-        jScrollPane3.setAutoscrolls(true);
         jScrollPane3.setName("jScrollPane3");
-        jScrollPane3.setRequestFocusEnabled(false);
 
         referencecode.setBackground(new java.awt.Color(254, 254, 254));
         referencecode.setColumns(20);
@@ -465,9 +462,7 @@ public class GUI extends javax.swing.JFrame {
         tabbedPane.addTab("    Code selected    ", jScrollPane3);
 
         jScrollPane5.setBackground(new java.awt.Color(254, 254, 254));
-        jScrollPane5.setAutoscrolls(true);
         jScrollPane5.setName("jScrollPane5");
-        jScrollPane5.setRequestFocusEnabled(false);
 
         codeall.setBackground(new java.awt.Color(254, 254, 254));
         codeall.setColumns(20);
@@ -516,7 +511,7 @@ public class GUI extends javax.swing.JFrame {
                 .add(page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, tabbedPane)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, page2Layout.createSequentialGroup()
-                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
                         .add(247, 247, 247))
                     .add(page2Layout.createSequentialGroup()
                         .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 230, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -546,16 +541,6 @@ public class GUI extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
         fileMenu.setName("fileMenu");
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.setName("exitMenuItem");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(exitMenuItem);
 
         open.setText("Open file");
         open.setName("open");
@@ -590,10 +575,6 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void exitMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
 
     public String getCurrentpage() {
         return currentpage.getName();
@@ -898,7 +879,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel booktitletext;
     private javax.swing.JTextArea codeall;
     private javax.swing.JButton deleteauthor;
-    private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel header2;
     private javax.swing.JLabel header3;

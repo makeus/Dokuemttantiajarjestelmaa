@@ -5,18 +5,19 @@ import java.util.ArrayList;
 public class Reference {
 
     private String type;
-    private String keyword = "";
-    private String title = "";
-    private String author = "";
-    private String journal = "";
-    private int volume = 0;
-    private int number = 0;
-    private int year = 0;
-    private String pages = "";
-    private String publisher = "";
-    private String address = "";
-    private String booktitle = "";
-    private String note = "";
+    private String keyword;
+    private String title;
+    private String author;
+    private String journal;
+    private int volume;
+    private int number;
+    private int year;
+    private String pages;
+    private String publisher;
+    private String address;
+    private String booktitle;
+    private String note;
+    
     ArrayList<String[]> keys;
 
     public Reference() {
@@ -166,8 +167,8 @@ public class Reference {
     }
 
     public String getInfo() {
-        String info = " " + type.substring(1,2).toUpperCase() + type.substring(2).toLowerCase() + "\n--------------\n";
-        info += " Keyword:\t\t" + keyword + "\n";
+        String info = type.substring(1,2).toUpperCase() + type.substring(2).toLowerCase() + "\n--------------\n";
+        info += "Keyword:\t\t" + keyword + "\n";
         for(String[] key : keys){
             if (!key[1].equals("") && !key[1].equals("0")) {
                 info += key[0] + ":\t\t" + key[1] + "\n"; 
