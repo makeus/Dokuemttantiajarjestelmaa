@@ -16,7 +16,10 @@ public class KeywordGen {
     public String generateKeyword(String[] lNames, int year) {
         String keyword = "";
         for (String lname : lNames) {
-            keyword = keyword + lname.charAt(0);
+            String [] temp = lname.split(" ");
+            for(int i = 0;i<temp.length;i++){
+                keyword = keyword + temp[i].charAt(0);
+            }
         }
         keyword = keyword + last2numbers(year);
         

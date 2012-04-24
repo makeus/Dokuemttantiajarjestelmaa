@@ -25,7 +25,7 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception ex) {
         }
         initComponents();
-        
+
         typeActionPerformed(null);
     }
 
@@ -68,11 +68,11 @@ public class GUI extends javax.swing.JFrame {
         booktitletext = new javax.swing.JLabel();
         note = new javax.swing.JTextField();
         notetext = new javax.swing.JLabel();
-        addmore = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         listData = new Vector();
         authorlist = new JList( listData );
-        deleteauthor = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        authorlist2 = new javax.swing.JList();
         page2 = new javax.swing.JPanel();
         page2.setVisible(false);
         header3 = new javax.swing.JLabel();
@@ -171,6 +171,11 @@ public class GUI extends javax.swing.JFrame {
         authortext.setName("authortext");
 
         author.setName("author");
+        author.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                authorFocusLost(evt);
+            }
+        });
 
         titletext.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         titletext.setText("Title");
@@ -273,27 +278,30 @@ public class GUI extends javax.swing.JFrame {
         notetext.setText("Note");
         notetext.setName("notetext");
 
-        addmore.setText("add author");
-        addmore.setName("addmore");
-        addmore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addmoreActionPerformed(evt);
-            }
-        });
-
         jScrollPane4.setName("jScrollPane4");
 
         authorlist.setForeground(new java.awt.Color(46, 46, 46));
         authorlist.setName("authorlist");
-        jScrollPane4.setViewportView(authorlist);
-
-        deleteauthor.setText("delete selected");
-        deleteauthor.setName("deleteauthor");
-        deleteauthor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteauthorActionPerformed(evt);
+        authorlist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                authorlistMouseClicked(evt);
             }
         });
+        jScrollPane4.setViewportView(authorlist);
+
+        jScrollPane8.setBorder(null);
+        jScrollPane8.setName("jScrollPane8");
+
+        authorlist2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        authorlist2.setForeground(java.awt.Color.black);
+        authorlist2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        authorlist2.setName("authorlist2");
+        authorlist2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                authorlist2MouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(authorlist2);
 
         org.jdesktop.layout.GroupLayout page1Layout = new org.jdesktop.layout.GroupLayout(page1);
         page1.setLayout(page1Layout);
@@ -303,79 +311,81 @@ public class GUI extends javax.swing.JFrame {
                 .add(33, 33, 33)
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(page1Layout.createSequentialGroup()
+                        .add(2, 2, 2)
                         .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(journaltext)
-                            .add(volumetext)
-                            .add(yeartext)
-                            .add(pagestext)
-                            .add(publishertext)
-                            .add(addresstext)
-                            .add(keywordtext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(28, 28, 28)
-                        .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(address, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 359, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(publisher, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 359, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(keyword, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(page1Layout.createSequentialGroup()
-                                .add(pages1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(pagestext2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(pages2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(submit)
+                                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(journaltext)
+                                    .add(volumetext)
+                                    .add(yeartext)
+                                    .add(pagestext)
+                                    .add(publishertext)
+                                    .add(addresstext)
+                                    .add(keywordtext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(28, 28, 28)
+                                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(address, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 359, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(publisher, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 359, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(keyword, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(page1Layout.createSequentialGroup()
+                                        .add(pages1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(pagestext2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 36, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(pages2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(submit)
+                                    .add(page1Layout.createSequentialGroup()
+                                        .add(volume, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(numbertext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 69, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(number, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(year, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(journal, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(page1Layout.createSequentialGroup()
-                                .add(volume, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(numbertext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 69, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(number, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(year, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(journal, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(booktitletext)
+                                    .add(notetext)
+                                    .add(titletext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(31, 31, 31)
+                                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                                        .add(org.jdesktop.layout.GroupLayout.LEADING, note, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                                        .add(org.jdesktop.layout.GroupLayout.LEADING, booktitle))
+                                    .add(referencetitle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 377, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(page1Layout.createSequentialGroup()
+                                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 215, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(18, 18, 18)
+                                        .add(jScrollPane8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 211, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
                     .add(page1Layout.createSequentialGroup()
-                        .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(titletext)
-                            .add(authortext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(booktitletext)
-                            .add(notetext))
+                        .add(authortext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(31, 31, 31)
-                        .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                .add(referencetitle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                                .add(booktitle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                                .add(note, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                                .add(page1Layout.createSequentialGroup()
-                                    .add(addmore)
-                                    .add(18, 18, 18)
-                                    .add(deleteauthor)))
-                            .add(author, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 215, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(author, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(page1Layout.createSequentialGroup()
                         .add(typetext, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(31, 31, 31)
                         .add(type, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(header2))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(395, Short.MAX_VALUE))
         );
         page1Layout.setVerticalGroup(
             page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(page1Layout.createSequentialGroup()
                 .add(31, 31, 31)
                 .add(header2)
-                .add(18, 18, 18)
+                .add(58, 58, 58)
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(typetext)
-                    .add(type, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(type, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(typetext))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(author, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(authortext))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(addmore, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(deleteauthor, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jScrollPane8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(page1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(titletext)
                     .add(referencetitle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -421,7 +431,7 @@ public class GUI extends javax.swing.JFrame {
                     .add(keywordtext))
                 .add(14, 14, 14)
                 .add(submit)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         getContentPane().add(page1);
@@ -511,12 +521,12 @@ public class GUI extends javax.swing.JFrame {
                 .add(page2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, tabbedPane)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, page2Layout.createSequentialGroup()
-                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                        .add(header3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
                         .add(247, 247, 247))
                     .add(page2Layout.createSequentialGroup()
                         .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 230, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jScrollPane1)))
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)))
                 .add(37, 37, 37))
         );
         page2Layout.setVerticalGroup(
@@ -597,7 +607,7 @@ public class GUI extends javax.swing.JFrame {
             if (i + 1 == authorlist.getModel().getSize()) {
                 authors = authors + authorlist.getModel().getElementAt(i).toString();
             } else {
-                authors = authors + authorlist.getModel().getElementAt(i).toString() + ", ";
+                authors = authors + authorlist.getModel().getElementAt(i).toString() + " and ";
             }
         }
         reference.setAuthor(authors);
@@ -612,7 +622,7 @@ public class GUI extends javax.swing.JFrame {
         reference.setNote(note.getText());
 
         references.addReference(reference);
-
+listKnownAuthors();
 
         JOptionPane.showMessageDialog(page1, "Reference successfully created!", "Reference created", JOptionPane.PLAIN_MESSAGE);
 
@@ -660,6 +670,11 @@ public class GUI extends javax.swing.JFrame {
             referencelist.setListData(references.getReferences().toArray());
             updatecodeall(references.getReferences());
         }
+    }
+
+    private void listKnownAuthors() {
+        List<String> authors = references.getAuthors();
+        authorlist2.setListData(authors.toArray());
     }
 
     private void printMouseClicked(MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
@@ -785,40 +800,22 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_typeActionPerformed
 
-    private void addmoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmoreActionPerformed
-        lastNames = new String[authorlist.getModel().getSize() + 1];
-        String stringValue = author.getText();
-        author.setText("");
-
-        if (stringValue != null) {
-            listData.addElement(stringValue);
-            authorlist.setListData(listData);
-        }
-        authorlist.setVisible(true);
-
-        for (int i = 0; i < authorlist.getModel().getSize(); i++) {
-            String[] names = authorlist.getModel().getElementAt(i).toString().split(" ");
-            lastNames[i] = names[0];
-        }
-        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
-
-    }//GEN-LAST:event_addmoreActionPerformed
-
     private void yearStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_yearStateChanged
         keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
     }//GEN-LAST:event_yearStateChanged
 
     private void openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openActionPerformed
         JFileChooser chooser = new JFileChooser(System.getProperty("user.dir"));
-        
+
         int choice = chooser.showOpenDialog(null);
 
         if (choice == JFileChooser.APPROVE_OPTION) {
-            
+
             File file = chooser.getSelectedFile();
             if (references.openFile(file.toString())) {
                 JOptionPane.showMessageDialog(page1, "Reference successfully loaded from file " + file.getName() + "!", "References loaded", JOptionPane.PLAIN_MESSAGE);
                 resetPrintLists();
+                listKnownAuthors();
             } else {
                 JOptionPane.showMessageDialog(page1, "Couldn't load references from file " + file.getName() + "!", "References load failed", JOptionPane.PLAIN_MESSAGE);
             }
@@ -829,7 +826,7 @@ public class GUI extends javax.swing.JFrame {
         JFileChooser chooser = new JFileChooser(System.getProperty("user.dir"));
 
         int choice = chooser.showSaveDialog(null);
-        
+
         if (choice == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
             if (references.saveAs(file.toString())) {
@@ -848,11 +845,6 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveActionPerformed
 
-    private void deleteauthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteauthorActionPerformed
-        listData.remove(authorlist.getSelectedIndex());
-        authorlist.setListData(listData);
-    }//GEN-LAST:event_deleteauthorActionPerformed
-
     private void articleChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_articleChanged
         Reference reference = (Reference) referencelist.getSelectedValue();
         if (reference != null) {
@@ -868,18 +860,64 @@ public class GUI extends javax.swing.JFrame {
     private void authorfilterChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_authorfilterChanged
         updatePrintLists();
     }//GEN-LAST:event_authorfilterChanged
+
+    private void authorlist2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authorlist2MouseClicked
+        lastNames = new String[authorlist.getModel().getSize() + 1];
+        String stringValue = authorlist2.getSelectedValue().toString();
+        author.setText("");
+
+        if (stringValue != null) {
+            listData.addElement(stringValue);
+            authorlist.setListData(listData);
+        }
+        authorlist.setVisible(true);
+
+        for (int i = 0; i < authorlist.getModel().getSize(); i++) {
+            String[] names = authorlist.getModel().getElementAt(i).toString().split(",");
+            lastNames[i] = names[0];
+        }
+        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
+    }//GEN-LAST:event_authorlist2MouseClicked
+
+    private void authorlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authorlistMouseClicked
+        lastNames = new String[authorlist.getModel().getSize() - 1];
+        listData.remove(authorlist.getSelectedIndex());
+        authorlist.setListData(listData);
+        for (int i = 0; i < authorlist.getModel().getSize(); i++) {
+            String[] names = authorlist.getModel().getElementAt(i).toString().split(",");
+            lastNames[i] = names[0];
+        }
+        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
+    }//GEN-LAST:event_authorlistMouseClicked
+
+    private void authorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_authorFocusLost
+        lastNames = new String[authorlist.getModel().getSize() + 1];
+        String stringValue = author.getText();
+        author.setText("");
+
+        if (stringValue != null) {
+            listData.addElement(stringValue);
+            authorlist.setListData(listData);
+        }
+        authorlist.setVisible(true);
+
+        for (int i = 0; i < authorlist.getModel().getSize(); i++) {
+            String[] names = authorlist.getModel().getElementAt(i).toString().split(",");
+            lastNames[i] = names[0];
+        }
+        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
+    }//GEN-LAST:event_authorFocusLost
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addmore;
     private javax.swing.JTextField address;
     private javax.swing.JLabel addresstext;
     private javax.swing.JTextField author;
     private javax.swing.JList authorfilterlist;
     private javax.swing.JList authorlist;
+    private javax.swing.JList authorlist2;
     private javax.swing.JLabel authortext;
     private javax.swing.JTextField booktitle;
     private javax.swing.JLabel booktitletext;
     private javax.swing.JTextArea codeall;
-    private javax.swing.JButton deleteauthor;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel header2;
     private javax.swing.JLabel header3;
@@ -889,6 +927,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTextField journal;
     private javax.swing.JLabel journaltext;
     private javax.swing.JTextField keyword;

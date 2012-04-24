@@ -23,7 +23,6 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             window.type.setSelectedItem("@article")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
-            window.addmoreActionPerformed()
             window.referencetitle.setText("Aakkoset")
             window.journal.setText("Opettajalehti")
             window.volume.setValue(3)
@@ -55,7 +54,6 @@ scenario 'Käyttäjä lisää kirjan tiedoilla', {
             window.type.setSelectedItem("@book")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
-            window.addmoreActionPerformed()
             window.referencetitle.setText("Aakkoset")
             window.year.setValue(2012)
             window.yearStateChanged()
@@ -84,7 +82,6 @@ scenario 'Käyttäjä lisää konferenssi tekstin tiedoilla', {
             window.type.setSelectedItem("@inproceeding")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
-            window.addmoreActionPerformed()
             window.referencetitle.setText("Aakkoset")
             window.booktitle.setText("Opettajan ABC")
             window.year.setValue(2012)
@@ -114,7 +111,6 @@ scenario 'Käyttäjä lisää sekalaisen tiedoilla', {
             window.type.setSelectedItem("@misc")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
-            window.addmoreActionPerformed()
             window.note.setText("opettaja.fi/opas")
         }
         and 'Add painiketta painetaan', {
