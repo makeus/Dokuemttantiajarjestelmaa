@@ -23,7 +23,7 @@ public class Authors {
         ArrayList<String> authors = new ArrayList<String>();
         for (Reference reference : references) {
             for (String author : pickAuthors(reference.getAuthor())) {
-                if (!(authors.indexOf(author.trim()) > 0)) {
+                if (!(authors.indexOf(author.trim()) >= 0)) {
                     authors.add(author.trim());
                 }
             }

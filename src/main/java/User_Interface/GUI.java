@@ -878,6 +878,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_authorfilterChanged
 
     private void authorlist2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authorlist2MouseClicked
+        if(authorlist2.getModel().getSize()==0)
+            return;
         String stringValue = authorlist2.getSelectedValue().toString();
         author.setText("");
         authorlist.setVisible(true);
@@ -886,6 +888,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_authorlist2MouseClicked
 
     private void authorlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authorlistMouseClicked
+        if(authorlist.getModel().getSize()==0)
+            return;
         listData.remove(authorlist.getSelectedIndex());
         authorlist.setListData(listData);
         keyword.setText(keywordgen.generateKeyword(lastNamesFromAuthorlist(), (Integer) year.getValue()));
