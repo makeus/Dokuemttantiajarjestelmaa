@@ -431,7 +431,7 @@ public class GUI extends javax.swing.JFrame {
                     .add(keywordtext))
                 .add(14, 14, 14)
                 .add(submit)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         getContentPane().add(page1);
@@ -622,7 +622,7 @@ public class GUI extends javax.swing.JFrame {
         reference.setNote(note.getText());
 
         references.addReference(reference);
-listKnownAuthors();
+        listKnownAuthors();
 
         JOptionPane.showMessageDialog(page1, "Reference successfully created!", "Reference created", JOptionPane.PLAIN_MESSAGE);
 
