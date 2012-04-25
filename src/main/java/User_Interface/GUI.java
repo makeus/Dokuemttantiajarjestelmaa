@@ -893,6 +893,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void authorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_authorFocusLost
         String stringValue = author.getText();
+        if(stringValue.equals(""))
+            return;
         author.setText("");
         authorlist.setVisible(true);
         addStringToAuthorlist(stringValue);
