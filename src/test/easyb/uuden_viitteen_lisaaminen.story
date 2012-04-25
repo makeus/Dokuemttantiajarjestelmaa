@@ -19,7 +19,7 @@ scenario 'Käyttäjä lisää artikkelin tiedoilla', {
             //window.show()
         }
 	when 'Artikkelin tiedot on annettu', {
-            window.newArticleMouseClicked()
+            window.newreferenceMouseClicked()
             window.type.setSelectedItem("@article")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
@@ -50,7 +50,7 @@ scenario 'Käyttäjä lisää kirjan tiedoilla', {
             //window.show()
         }
 	when 'Kirjan tiedot on annettu', {
-            window.newArticleMouseClicked()
+            window.newreferenceMouseClicked()
             window.type.setSelectedItem("@book")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
@@ -78,7 +78,7 @@ scenario 'Käyttäjä lisää konferenssi tekstin tiedoilla', {
             //window.show()
         }
 	when 'Konferenssitekstin tiedot on annettu', {
-            window.newArticleMouseClicked()
+            window.newreferenceMouseClicked()
             window.type.setSelectedItem("@inproceeding")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
@@ -107,7 +107,7 @@ scenario 'Käyttäjä lisää sekalaisen tiedoilla', {
             //window.show()
         }
 	when 'Sekalaiset tiedot on annettu', {
-            window.newArticleMouseClicked()
+            window.newreferenceMouseClicked()
             window.type.setSelectedItem("@misc")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
