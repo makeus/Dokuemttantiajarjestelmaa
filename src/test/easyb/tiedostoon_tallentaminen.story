@@ -17,11 +17,11 @@ scenario 'Käyttäjä tallentaa lisäämänsä lähdeviitteet tiedostoon', {
             //window.show()
         }
 	and 'Artikkelin tiedot on annettu', {
-            window.newArticleMouseClicked()
+            window.newreferenceMouseClicked()
             window.type.setSelectedItem("@article")
             window.typeActionPerformed()
             window.author.setText("Olli Opettaja")
-            window.addmoreActionPerformed()
+            //window.addmoreActionPerformed()
             window.referencetitle.setText("Aakkoset")
             window.journal.setText("Opettajalehti")
             window.volume.setValue(3)

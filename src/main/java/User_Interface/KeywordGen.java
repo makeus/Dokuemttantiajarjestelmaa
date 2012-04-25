@@ -14,7 +14,7 @@ public class KeywordGen {
     }
     
     public String generateKeyword(String[] lNames, int year) {
-        if(lNames == null || year == (Integer)null || year == 0  || year < 10 || lNames.length == 0)
+        if (lNames == null || year < 10 || lNames.length == 0)
             return "";
         String keyword = "";
         for (String lname : lNames) {

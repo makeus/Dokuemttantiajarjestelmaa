@@ -30,7 +30,7 @@ public class KeywordGenTest {
         List<Reference> list = new ArrayList<Reference>();
         when(references.getReferences()).thenReturn(list);
         String keyword = keywordgen.generateKeyword(lNames, year);
-        assertEquals("MV12", keywordgen.generateKeyword(lNames, year));
+        assertEquals("MV12", keyword);
 
     }
 
