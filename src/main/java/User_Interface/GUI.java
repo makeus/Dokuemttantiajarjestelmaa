@@ -622,7 +622,7 @@ public class GUI extends javax.swing.JFrame {
         reference.setNote(note.getText());
 
         references.addReference(reference);
-listKnownAuthors();
+        listKnownAuthors();
 
         JOptionPane.showMessageDialog(page1, "Reference successfully created!", "Reference created", JOptionPane.PLAIN_MESSAGE);
 
@@ -675,6 +675,22 @@ listKnownAuthors();
     private void listKnownAuthors() {
         List<String> authors = references.getAuthors();
         authorlist2.setListData(authors.toArray());
+    }
+
+    private void addStringToAuthorlist(String stringValue) {
+        if (stringValue != null) {
+            listData.addElement(stringValue);
+            authorlist.setListData(listData);
+        }
+    }
+
+    private String[] lastNamesFromAuthorlist() {
+        lastNames = new String[authorlist.getModel().getSize()];
+        for (int i = 0; i < authorlist.getModel().getSize(); i++) {
+            String[] names = authorlist.getModel().getElementAt(i).toString().split(",");
+            lastNames[i] = names[0];
+        }
+        return lastNames;
     }
 
     private void printMouseClicked(MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
@@ -862,50 +878,25 @@ listKnownAuthors();
     }//GEN-LAST:event_authorfilterChanged
 
     private void authorlist2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authorlist2MouseClicked
-        lastNames = new String[authorlist.getModel().getSize() + 1];
         String stringValue = authorlist2.getSelectedValue().toString();
         author.setText("");
-
-        if (stringValue != null) {
-            listData.addElement(stringValue);
-            authorlist.setListData(listData);
-        }
         authorlist.setVisible(true);
-
-        for (int i = 0; i < authorlist.getModel().getSize(); i++) {
-            String[] names = authorlist.getModel().getElementAt(i).toString().split(",");
-            lastNames[i] = names[0];
-        }
-        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
+        addStringToAuthorlist(stringValue);
+        keyword.setText(keywordgen.generateKeyword(lastNamesFromAuthorlist(), (Integer) year.getValue()));
     }//GEN-LAST:event_authorlist2MouseClicked
 
     private void authorlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authorlistMouseClicked
-        lastNames = new String[authorlist.getModel().getSize() - 1];
         listData.remove(authorlist.getSelectedIndex());
         authorlist.setListData(listData);
-        for (int i = 0; i < authorlist.getModel().getSize(); i++) {
-            String[] names = authorlist.getModel().getElementAt(i).toString().split(",");
-            lastNames[i] = names[0];
-        }
-        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
+        keyword.setText(keywordgen.generateKeyword(lastNamesFromAuthorlist(), (Integer) year.getValue()));
     }//GEN-LAST:event_authorlistMouseClicked
 
     private void authorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_authorFocusLost
-        lastNames = new String[authorlist.getModel().getSize() + 1];
         String stringValue = author.getText();
         author.setText("");
-
-        if (stringValue != null) {
-            listData.addElement(stringValue);
-            authorlist.setListData(listData);
-        }
         authorlist.setVisible(true);
-
-        for (int i = 0; i < authorlist.getModel().getSize(); i++) {
-            String[] names = authorlist.getModel().getElementAt(i).toString().split(",");
-            lastNames[i] = names[0];
-        }
-        keyword.setText(keywordgen.generateKeyword(lastNames, (Integer) year.getValue()));
+        addStringToAuthorlist(stringValue);
+        keyword.setText(keywordgen.generateKeyword(lastNamesFromAuthorlist(), (Integer) year.getValue()));
     }//GEN-LAST:event_authorFocusLost
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
